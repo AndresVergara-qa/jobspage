@@ -1,0 +1,71 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-slate-900 text-slate-300 py-16">
+  <div class="section-container">
+    <div class="grid md:grid-cols-4 gap-12 mb-12">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-2 mb-6">
+          <div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+            <span class="material-icons text-white text-lg">radar</span>
+          </div>
+          <span class="text-xl font-bold text-white tracking-tight">JobRadar</span>
+        </div>
+        <p class="text-sm leading-relaxed text-slate-400">
+          The ultimate destination for verified career opportunities. We scan thousands of company pages so you don't have to.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h5 class="text-white font-bold mb-6">Quick Links</h5>
+        <ul class="space-y-4 text-sm">
+          <li><a class="hover:text-primary transition-colors" href="/">Browse Jobs</a></li>
+          <li><a class="hover:text-primary transition-colors" href="/categories">By Category</a></li>
+          <li><a class="hover:text-primary transition-colors" href="/about">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources -->
+      <div>
+        <h5 class="text-white font-bold mb-6">Resources</h5>
+        <ul class="space-y-4 text-sm">
+          <li><a class="hover:text-primary transition-colors" href="/blog">Career Blog</a></li>
+          <li><a class="hover:text-primary transition-colors" href="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h5 class="text-white font-bold mb-6">Stay Updated</h5>
+        <p class="text-sm text-slate-400 mb-4">Get the best jobs in your inbox weekly.</p>
+        <form class="flex bg-slate-800 rounded-lg p-1 overflow-hidden">
+          <input
+            class="bg-transparent border-none focus:ring-0 text-sm px-3 flex-1 text-white placeholder-slate-500"
+            placeholder="Email address"
+            type="email"
+          />
+          <button type="submit" class="bg-primary text-white p-2 rounded-md hover:bg-primary-600 transition-colors">
+            <span class="material-icons text-sm">send</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="pt-8 border-t border-slate-800 text-xs flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-center md:text-left">
+        <p>&copy; {currentYear} JobRadar. All rights reserved.</p>
+        <p class="mt-2 text-slate-500 italic">
+          Disclaimer: JobRadar is an aggregator. Always verify job details and apply on official company career portals.
+        </p>
+      </div>
+      <div class="flex gap-6">
+        <a class="hover:text-white transition-colors" href="/privacy">Privacy Policy</a>
+        <a class="hover:text-white transition-colors" href="/terms">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>

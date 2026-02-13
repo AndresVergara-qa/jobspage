@@ -1,0 +1,69 @@
+---
+---
+
+<aside class="card p-5 space-y-6">
+  <div class="flex items-center justify-between">
+    <h3 class="font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider">Filters</h3>
+    <button class="text-primary text-xs font-semibold hover:underline" id="clear-filters">Clear all</button>
+  </div>
+
+  <!-- Job Type -->
+  <div>
+    <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Job Type</h4>
+    <div class="space-y-2">
+      {['Full-time', 'Contract', 'Part-time', 'Freelance'].map((type) => (
+        <label class="flex items-center gap-3 cursor-pointer group">
+          <input
+            type="checkbox"
+            name="type"
+            value={type}
+            class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4"
+          />
+          <span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">
+            {type}
+          </span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <!-- Experience Level -->
+  <div>
+    <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Experience Level</h4>
+    <div class="space-y-2">
+      {['Junior', 'Mid', 'Senior', 'Lead'].map((level) => (
+        <label class="flex items-center gap-3 cursor-pointer group">
+          <input
+            type="checkbox"
+            name="level"
+            value={level}
+            class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4"
+          />
+          <span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">
+            {level}
+          </span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <!-- Date Posted -->
+  <div>
+    <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Date Posted</h4>
+    <div class="space-y-2">
+      {['Last 24 hours', 'Last 7 days', 'Last 30 days', 'Anytime'].map((opt) => (
+        <label class="flex items-center gap-3 cursor-pointer group">
+          <input
+            type="radio"
+            name="date"
+            value={opt}
+            class="rounded-full border-slate-300 text-primary focus:ring-primary h-4 w-4"
+          />
+          <span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">
+            {opt}
+          </span>
+        </label>
+      ))}
+    </div>
+  </div>
+</aside>

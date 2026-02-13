@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact Us | JobRadar">
+  <section class="py-16">
+    <div class="section-container">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-12">
+          <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Contact Us</h1>
+          <p class="text-slate-600 dark:text-slate-400">
+            Have a question or feedback? We'd love to hear from you.
+          </p>
+        </div>
+
+        <div class="card p-8">
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-semibold mb-2" for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name" class="input-field" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold mb-2" for="email">Email</label>
+                <input id="email" type="email" placeholder="name@example.com" class="input-field" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2" for="subject">Subject</label>
+              <input id="subject" type="text" placeholder="How can we help?" class="input-field" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2" for="message">Message</label>
+              <textarea id="message" class="input-field min-h-[150px]" placeholder="Write your message..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full py-3">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Info cards -->
+        <div class="grid md:grid-cols-3 gap-6 mt-12">
+          {[
+            { icon: 'email', title: 'Email', detail: 'hello@jobradar.com' },
+            { icon: 'schedule', title: 'Response Time', detail: 'Within 24 hours' },
+            { icon: 'location_on', title: 'Location', detail: 'Remote-first company' },
+          ].map((info) => (
+            <div class="card p-6 text-center">
+              <span class="material-icons text-primary text-2xl mb-3">{info.icon}</span>
+              <h4 class="font-semibold text-slate-900 dark:text-white">{info.title}</h4>
+              <p class="text-sm text-slate-500 mt-1">{info.detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

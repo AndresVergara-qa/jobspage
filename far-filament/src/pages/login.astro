@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Login | JobRadar">
+  <div class="min-h-[80vh] flex items-center justify-center p-6">
+    <div class="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-2 card overflow-hidden">
+      <!-- Login -->
+      <div class="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-slate-800">
+        <div class="mb-10">
+          <h1 class="text-3xl font-bold mb-2">Welcome Back</h1>
+          <p class="text-slate-500 dark:text-slate-400">Sign in to continue your job search</p>
+        </div>
+        <form class="space-y-6">
+          <div>
+            <label class="block text-sm font-semibold mb-2" for="login-email">Email Address</label>
+            <input id="login-email" type="email" placeholder="name@company.com" class="input-field" />
+          </div>
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-sm font-semibold" for="login-password">Password</label>
+              <a class="text-xs font-medium text-primary hover:underline" href="#">Forgot password?</a>
+            </div>
+            <input id="login-password" type="password" placeholder="••••••••" class="input-field" />
+          </div>
+          <div class="flex items-center">
+            <input class="w-4 h-4 text-primary border-slate-300 rounded focus:ring-primary" id="remember" type="checkbox" />
+            <label class="ml-2 text-sm text-slate-600 dark:text-slate-400" for="remember">Remember me for 30 days</label>
+          </div>
+          <button type="submit" class="btn-primary w-full py-3">Sign In</button>
+        </form>
+      </div>
+
+      <!-- Register -->
+      <div class="p-8 md:p-12 bg-slate-50 dark:bg-slate-800/30">
+        <div class="mb-10">
+          <h2 class="text-3xl font-bold mb-2 text-slate-900 dark:text-white">Create an Account</h2>
+          <p class="text-slate-500 dark:text-slate-400">Join the community of verified professionals</p>
+        </div>
+        <form class="space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold mb-2" for="reg-name">Full Name</label>
+              <input id="reg-name" type="text" placeholder="John Doe" class="input-field" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2" for="reg-role">I am a...</label>
+              <select id="reg-role" class="input-field">
+                <option value="candidate">Candidate</option>
+                <option value="employer">Employer</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2" for="reg-email">Work Email</label>
+            <input id="reg-email" type="email" placeholder="name@company.com" class="input-field" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2" for="reg-password">Password</label>
+            <input id="reg-password" type="password" placeholder="At least 8 characters" class="input-field" />
+          </div>
+          <p class="text-xs text-slate-500">
+            By creating an account, you agree to our
+            <a class="text-primary hover:underline" href="/terms">Terms of Service</a> and
+            <a class="text-primary hover:underline" href="/privacy">Privacy Policy</a>.
+          </p>
+          <button type="submit" class="btn-primary w-full py-3">Create Account</button>
+        </form>
+
+        <!-- Benefits -->
+        <div class="mt-12">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-6">Membership Benefits</h3>
+          <div class="grid grid-cols-2 gap-y-6 gap-x-4">
+            {[
+              { icon: 'bookmark', text: 'Save jobs for later' },
+              { icon: 'auto_awesome', text: 'Personalized recommendations' },
+              { icon: 'campaign', text: 'Post jobs instantly' },
+              { icon: 'dashboard', text: 'Manage applications' },
+            ].map((b) => (
+              <div class="flex items-start gap-3">
+                <div class="mt-1 p-1 bg-primary/10 rounded">
+                  <span class="material-icons text-primary text-sm">{b.icon}</span>
+                </div>
+                <span class="text-xs font-medium text-slate-600 dark:text-slate-400">{b.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

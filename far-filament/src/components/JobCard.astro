@@ -1,0 +1,64 @@
+---
+import type { Job } from '../services/jobService';
+import { timeAgo, getInitials } from '../services/jobService';
+
+interface Props {
+  job: Job;
+}
+
+const { job } = Astro.props;
+const posted = timeAgo(job.postedAt);
+
+const typeColor: Record<string, string> = {
+  'Full-time': 'tag-success',
+  'Part-time': 'tag-warning',
+  Contract: 'tag-warning',
+  Freelance: 'tag-neutral',
+};
+---
+
+<a
+  href={`/jobs/${job.id}`}
+  class="card-hover p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 group block"
+>
+  <!-- Logo -->
+  <div class="w-14 h-14 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden shrink-0">
+    {job.logoUrl ? (
+      <img src={job.logoUrl} alt={`${job.company} logo`} class="w-full h-full object-cover" />
+    ) : (
+      <span class="text-primary font-bold text-lg">{getInitials(job.company)}</span>
+    )}
+  </div>
+
+  <!-- Info -->
+  <div class="flex-1 min-w-0">
+    <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors truncate">
+      {job.title}
+    </h3>
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-slate-500 dark:text-slate-400 text-sm mt-1">
+      <span class="flex items-center gap-1">
+        <span class="material-icons text-sm">business</span>
+        {job.company}
+        {job.isVerified && <span class="material-icons text-blue-500 text-sm ml-0.5">verified</span>}
+      </span>
+      <span class="flex items-center gap-1">
+        <span class="material-icons text-sm">location_on</span>
+        {job.location}
+      </span>
+      <span class="flex items-center gap-1">
+        <span class="material-icons text-sm">schedule</span>
+        {posted}
+      </span>
+    </div>
+    <div class="flex flex-wrap gap-2 mt-3">
+      <span class={typeColor[job.type] || 'tag-neutral'}>{job.type}</span>
+      <span class="tag-primary">{job.level}</span>
+      {job.salary && <span class="tag-salary">{job.salary}</span>}
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <span class="btn-outline w-full sm:w-auto text-center text-sm whitespace-nowrap">
+    View Offer
+  </span>
+</a>

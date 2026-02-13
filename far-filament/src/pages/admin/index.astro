@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Admin Login | JobRadar">
+  <div class="min-h-[80vh] flex items-center justify-center p-6">
+    <div class="max-w-md w-full">
+      <div class="card p-8 md:p-10">
+        <!-- Header -->
+        <div class="text-center mb-8">
+          <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="material-icons text-primary text-3xl">admin_panel_settings</span>
+          </div>
+          <h1 class="text-2xl font-bold text-slate-900 dark:text-white">Admin Access</h1>
+          <p class="text-slate-500 text-sm mt-2">Enter your credentials to manage job listings</p>
+        </div>
+
+        <!-- Login Form -->
+        <form id="admin-login-form" class="space-y-5">
+          <div>
+            <label class="block text-sm font-semibold mb-2" for="admin-password">Access Code</label>
+            <input
+              id="admin-password"
+              type="password"
+              placeholder="Enter admin access code"
+              class="input-field"
+              required
+            />
+          </div>
+
+          <div id="login-error" class="hidden text-sm text-red-500 bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
+            Invalid access code. Please try again.
+          </div>
+
+          <button type="submit" class="btn-primary w-full py-3">
+            Access Dashboard
+          </button>
+        </form>
+
+        <p class="text-xs text-slate-400 text-center mt-6">
+          This is a restricted area. Unauthorized access is prohibited.
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const ADMIN_CODE = 'jobradar2024';
+  const AUTH_KEY = 'jobradar_admin_auth';
+
+  // Check if already authenticated
+  if (sessionStorage.getItem(AUTH_KEY) === 'true') {
+    window.location.href = '/admin/dashboard';
+  }
+
+  const form = document.getElementById('admin-login-form') as HTMLFormElement;
+  const errorEl = document.getElementById('login-error') as HTMLElement;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const password = (document.getElementById('admin-password') as HTMLInputElement).value;
+
+    if (password === ADMIN_CODE) {
+      sessionStorage.setItem(AUTH_KEY, 'true');
+      window.location.href = '/admin/dashboard';
+    } else {
+      errorEl.classList.remove('hidden');
+      setTimeout(() => errorEl.classList.add('hidden'), 3000);
+    }
+  });
+</script>
