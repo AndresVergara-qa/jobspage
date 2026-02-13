@@ -1,18 +1,18 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import JobCard from '../../components/JobCard.astro';
-import EmptyState from '../../components/EmptyState.astro';
-import { fetchJobsByCategory, categories } from '../../services/jobService';
+import Layout from "../../layouts/Layout.astro"
+import JobCard from "../../components/JobCard.astro"
+import EmptyState from "../../components/EmptyState.astro"
+import { fetchJobsByCategory, categories } from "../../services/jobService"
 
 export async function getStaticPaths() {
   return categories.map((cat) => ({
-    params: { slug: cat.name.toLowerCase().replace(/\s+/g, '-') },
+    params: { slug: cat.name.toLowerCase().replace(/\s+/g, "-") },
     props: { categoryName: cat.name, icon: cat.icon },
-  }));
+  }))
 }
 
-const { categoryName, icon } = Astro.props;
-const jobs = await fetchJobsByCategory(categoryName);
+const { categoryName, icon } = Astro.props
+const jobs = await fetchJobsByCategory(categoryName)
 ---
 
 <Layout title={`${categoryName} Jobs | JobRadar`}>
@@ -26,25 +26,23 @@ const jobs = await fetchJobsByCategory(categoryName);
         <div>
           <h1 class="text-2xl font-bold text-slate-900 dark:text-white">{categoryName} Jobs</h1>
           <p class="text-slate-500 text-sm mt-1">
-            {jobs.length} verified listing{jobs.length !== 1 ? 's' : ''} found
+            {jobs.length} verified listing{jobs.length !== 1 ? "s" : ""} found
           </p>
         </div>
       </div>
 
       <!-- Job list -->
-      {jobs.length > 0 ? (
-        <div class="space-y-4">
-          {jobs.map((job) => (
-            <JobCard job={job} />
-          ))}
-        </div>
-      ) : (
-        <EmptyState
-          title={`No ${categoryName} jobs yet`}
-          message="Check back soon — new listings are added daily."
-          icon="work_off"
-        />
-      )}
+      {
+        jobs.length > 0 ? (
+          <div class="space-y-4">
+            {jobs.map((job) => (
+              <JobCard job={job} />
+            ))}
+          </div>
+        ) : (
+          <EmptyState title={`No ${categoryName} jobs yet`} message="Check back soon — new listings are added daily." icon="work_off" />
+        )
+      }
 
       <!-- Back link -->
       <div class="mt-10 text-center">

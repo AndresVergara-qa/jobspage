@@ -1,6 +1,6 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { categories } from '../../services/jobService';
+import Layout from "../../layouts/Layout.astro"
+import { categories } from "../../services/jobService"
 ---
 
 <Layout title="Admin Dashboard | JobRadar">
@@ -11,10 +11,7 @@ import { categories } from '../../services/jobService';
         <h1 class="text-2xl font-bold text-slate-900 dark:text-white">Admin Dashboard</h1>
         <p class="text-slate-500 text-sm mt-1">Manage job listings for JobRadar</p>
       </div>
-      <button
-        id="logout-btn"
-        class="text-sm font-medium text-red-500 hover:text-red-600 flex items-center gap-1"
-      >
+      <button id="logout-btn" class="text-sm font-medium text-red-500 hover:text-red-600 flex items-center gap-1">
         <span class="material-icons text-sm">logout</span>
         Logout
       </button>
@@ -57,9 +54,7 @@ import { categories } from '../../services/jobService';
                 <label class="block text-sm font-semibold mb-2" for="job-category">Category *</label>
                 <select id="job-category" class="input-field" required>
                   <option value="">Select category</option>
-                  {categories.map((cat) => (
-                    <option value={cat.name}>{cat.name}</option>
-                  ))}
+                  {categories.map((cat) => <option value={cat.name}>{cat.name}</option>)}
                 </select>
               </div>
               <div>
@@ -90,11 +85,7 @@ import { categories } from '../../services/jobService';
 
             <div>
               <label class="block text-sm font-semibold mb-2" for="job-description">Description *</label>
-              <textarea
-                id="job-description"
-                class="input-field min-h-[120px]"
-                placeholder="Write a compelling job description..."
-                required
+              <textarea id="job-description" class="input-field min-h-[120px]" placeholder="Write a compelling job description..." required
               ></textarea>
             </div>
 
@@ -159,67 +150,67 @@ import { categories } from '../../services/jobService';
 </Layout>
 
 <script>
-  const AUTH_KEY = 'jobradar_admin_auth';
-  const STORAGE_KEY = 'jobradar_admin_jobs';
+  const AUTH_KEY = "jobradar_admin_auth"
+  const STORAGE_KEY = "jobradar_admin_jobs"
 
   // ── Auth guard ──────────────────────────────────────────────────────────────
-  if (sessionStorage.getItem(AUTH_KEY) !== 'true') {
-    window.location.href = '/admin';
+  if (sessionStorage.getItem(AUTH_KEY) !== "true") {
+    window.location.href = "/admin"
   }
 
   // ── Logout ──────────────────────────────────────────────────────────────────
-  document.getElementById('logout-btn')?.addEventListener('click', () => {
-    sessionStorage.removeItem(AUTH_KEY);
-    window.location.href = '/admin';
-  });
+  document.getElementById("logout-btn")?.addEventListener("click", () => {
+    sessionStorage.removeItem(AUTH_KEY)
+    window.location.href = "/admin"
+  })
 
   // ── Helpers ─────────────────────────────────────────────────────────────────
   interface AdminJob {
-    id: string;
-    title: string;
-    company: string;
-    logoUrl: string;
-    location: string;
-    type: string;
-    level: string;
-    category: string;
-    salary: string;
-    description: string;
-    applicationUrl: string;
-    postedAt: string;
-    isVerified: boolean;
-    source: string;
+    id: string
+    title: string
+    company: string
+    logoUrl: string
+    location: string
+    type: string
+    level: string
+    category: string
+    salary: string
+    description: string
+    applicationUrl: string
+    postedAt: string
+    isVerified: boolean
+    source: string
   }
 
   function getAdminJobs(): AdminJob[] {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : [];
+      const raw = localStorage.getItem(STORAGE_KEY)
+      return raw ? JSON.parse(raw) : []
     } catch {
-      return [];
+      return []
     }
   }
 
   function saveAdminJobs(jobs: AdminJob[]) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(jobs));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(jobs))
   }
 
   // ── Render list ─────────────────────────────────────────────────────────────
   function renderAdminJobs() {
-    const jobs = getAdminJobs();
-    const list = document.getElementById('admin-jobs-list')!;
-    const empty = document.getElementById('no-admin-jobs')!;
-    const stat = document.getElementById('stat-admin-count')!;
+    const jobs = getAdminJobs()
+    const list = document.getElementById("admin-jobs-list")!
+    const empty = document.getElementById("no-admin-jobs")!
+    const stat = document.getElementById("stat-admin-count")!
 
-    stat.textContent = String(jobs.length);
+    stat.textContent = String(jobs.length)
 
     if (jobs.length === 0) {
-      list.innerHTML = '';
-      empty.classList.remove('hidden');
-      return;
+      list.innerHTML = ""
+      empty.classList.remove("hidden")
+      return
     }
 
-    empty.classList.add('hidden');
+    empty.classList.add("hidden")
     list.innerHTML = jobs
       .map(
         (job) => `
@@ -236,62 +227,62 @@ import { categories } from '../../services/jobService';
             <span class="material-icons text-sm">delete</span>
           </button>
         </div>
-      `
+      `,
       )
-      .join('');
+      .join("")
 
     // Attach delete handlers
-    document.querySelectorAll('.delete-job-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const id = (btn as HTMLElement).dataset.id!;
-        const updated = getAdminJobs().filter((j) => j.id !== id);
-        saveAdminJobs(updated);
-        renderAdminJobs();
-      });
-    });
+    document.querySelectorAll(".delete-job-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = (btn as HTMLElement).dataset.id!
+        const updated = getAdminJobs().filter((j) => j.id !== id)
+        saveAdminJobs(updated)
+        renderAdminJobs()
+      })
+    })
   }
 
   // ── Form submission ─────────────────────────────────────────────────────────
-  const form = document.getElementById('add-job-form') as HTMLFormElement;
-  const successEl = document.getElementById('form-success')!;
-  const errorEl = document.getElementById('form-error')!;
+  const form = document.getElementById("add-job-form") as HTMLFormElement
+  const successEl = document.getElementById("form-success")!
+  const errorEl = document.getElementById("form-error")!
 
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault()
 
     try {
       const newJob: AdminJob = {
         id: `admin-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
-        title: (document.getElementById('job-title') as HTMLInputElement).value,
-        company: (document.getElementById('job-company') as HTMLInputElement).value,
-        logoUrl: (document.getElementById('job-logo') as HTMLInputElement).value || '',
-        location: (document.getElementById('job-location') as HTMLInputElement).value,
-        type: (document.getElementById('job-type') as HTMLSelectElement).value,
-        level: (document.getElementById('job-level') as HTMLSelectElement).value,
-        category: (document.getElementById('job-category') as HTMLSelectElement).value,
-        salary: (document.getElementById('job-salary') as HTMLInputElement).value || '',
-        description: (document.getElementById('job-description') as HTMLTextAreaElement).value,
-        applicationUrl: (document.getElementById('job-url') as HTMLInputElement).value,
+        title: (document.getElementById("job-title") as HTMLInputElement).value,
+        company: (document.getElementById("job-company") as HTMLInputElement).value,
+        logoUrl: (document.getElementById("job-logo") as HTMLInputElement).value || "",
+        location: (document.getElementById("job-location") as HTMLInputElement).value,
+        type: (document.getElementById("job-type") as HTMLSelectElement).value,
+        level: (document.getElementById("job-level") as HTMLSelectElement).value,
+        category: (document.getElementById("job-category") as HTMLSelectElement).value,
+        salary: (document.getElementById("job-salary") as HTMLInputElement).value || "",
+        description: (document.getElementById("job-description") as HTMLTextAreaElement).value,
+        applicationUrl: (document.getElementById("job-url") as HTMLInputElement).value,
         postedAt: new Date().toISOString(),
         isVerified: false,
-        source: 'admin',
-      };
+        source: "admin",
+      }
 
-      const existing = getAdminJobs();
-      existing.push(newJob);
-      saveAdminJobs(existing);
+      const existing = getAdminJobs()
+      existing.push(newJob)
+      saveAdminJobs(existing)
 
-      form.reset();
-      renderAdminJobs();
+      form.reset()
+      renderAdminJobs()
 
-      successEl.classList.remove('hidden');
-      setTimeout(() => successEl.classList.add('hidden'), 3000);
+      successEl.classList.remove("hidden")
+      setTimeout(() => successEl.classList.add("hidden"), 3000)
     } catch {
-      errorEl.classList.remove('hidden');
-      setTimeout(() => errorEl.classList.add('hidden'), 3000);
+      errorEl.classList.remove("hidden")
+      setTimeout(() => errorEl.classList.add("hidden"), 3000)
     }
-  });
+  })
 
   // ── Init ────────────────────────────────────────────────────────────────────
-  renderAdminJobs();
+  renderAdminJobs()
 </script>

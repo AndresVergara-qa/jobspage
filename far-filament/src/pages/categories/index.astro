@@ -1,7 +1,7 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import CategoryCard from '../../components/CategoryCard.astro';
-import { categories } from '../../services/jobService';
+import Layout from "../../layouts/Layout.astro"
+import CategoryCard from "../../components/CategoryCard.astro"
+import { categories } from "../../services/jobService"
 ---
 
 <Layout title="Job Categories | JobRadar">
@@ -9,14 +9,10 @@ import { categories } from '../../services/jobService';
     <div class="section-container">
       <div class="text-center mb-12">
         <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Explore by Category</h1>
-        <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
-          Browse verified job listings organized by industry and function.
-        </p>
+        <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">Browse verified job listings organized by industry and function.</p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {categories.map((cat) => (
-          <CategoryCard category={cat} />
-        ))}
+        {categories.map((cat) => <CategoryCard category={cat} />)}
       </div>
     </div>
   </section>

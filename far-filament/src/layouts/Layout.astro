@@ -1,14 +1,14 @@
 ---
-import '../styles/global.css';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
+import "../styles/global.css"
+import Navbar from "../components/Navbar.astro"
+import Footer from "../components/Footer.astro"
 
 interface Props {
-  title: string;
-  description?: string;
+  title: string
+  description?: string
 }
 
-const { title, description = 'The most reliable job aggregator. Verified listings only, no spam, no hidden costs.' } = Astro.props;
+const { title, description = "The most reliable job aggregator. Verified listings only, no spam, no hidden costs." } = Astro.props
 ---
 
 <!doctype html>
@@ -21,7 +21,9 @@ const { title, description = 'The most reliable job aggregator. Verified listing
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300 min-h-screen flex flex-col">
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300 min-h-screen flex flex-col"
+  >
     <Navbar />
     <main class="flex-1">
       <slot />

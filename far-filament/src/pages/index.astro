@@ -1,13 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import SearchBar from '../components/SearchBar.astro';
-import CategoryCard from '../components/CategoryCard.astro';
-import JobCard from '../components/JobCard.astro';
-import { fetchJobs, categories } from '../services/jobService';
+import Layout from "../layouts/Layout.astro"
+import SearchBar from "../components/SearchBar.astro"
+import CategoryCard from "../components/CategoryCard.astro"
+import JobCard from "../components/JobCard.astro"
+import { fetchJobs, categories } from "../services/jobService"
 
-const jobs = await fetchJobs();
-const recentJobs = jobs.slice(0, 6);
-const popularTags = ['QA', 'Remote', 'Accounting', 'Junior', 'USA', 'Latam'];
+const jobs = await fetchJobs()
+const recentJobs = jobs.slice(0, 6)
+const popularTags = ["QA", "Remote", "Accounting", "Junior", "USA", "Latam"]
 ---
 
 <Layout title="JobRadar | Find Real Jobs and Apply with Confidence">
@@ -26,14 +26,16 @@ const popularTags = ['QA', 'Remote', 'Accounting', 'Junior', 'USA', 'Latam'];
       <!-- Popular tags -->
       <div class="mt-6 flex flex-wrap justify-center gap-3">
         <span class="text-sm font-medium text-slate-500 dark:text-slate-400 flex items-center">Popular:</span>
-        {popularTags.map((tag) => (
-          <a
-            href={`/search?q=${encodeURIComponent(tag)}`}
-            class="px-3 py-1 text-sm bg-primary/10 text-primary border border-primary/20 rounded-full hover:bg-primary/20 transition-all"
-          >
-            {tag}
-          </a>
-        ))}
+        {
+          popularTags.map((tag) => (
+            <a
+              href={`/search?q=${encodeURIComponent(tag)}`}
+              class="px-3 py-1 text-sm bg-primary/10 text-primary border border-primary/20 rounded-full hover:bg-primary/20 transition-all"
+            >
+              {tag}
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -43,9 +45,7 @@ const popularTags = ['QA', 'Remote', 'Accounting', 'Junior', 'USA', 'Latam'];
     <div class="section-container">
       <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8">Explore by Category</h2>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        {categories.slice(0, 6).map((cat) => (
-          <CategoryCard category={cat} />
-        ))}
+        {categories.slice(0, 6).map((cat) => <CategoryCard category={cat} />)}
       </div>
     </div>
   </section>
@@ -63,9 +63,7 @@ const popularTags = ['QA', 'Remote', 'Accounting', 'Junior', 'USA', 'Latam'];
         </a>
       </div>
       <div class="space-y-4">
-        {recentJobs.map((job) => (
-          <JobCard job={job} />
-        ))}
+        {recentJobs.map((job) => <JobCard job={job} />)}
       </div>
     </div>
   </section>
@@ -78,20 +76,22 @@ const popularTags = ['QA', 'Remote', 'Accounting', 'Junior', 'USA', 'Latam'];
         <p class="text-slate-600 dark:text-slate-400">We prioritize security and legitimacy above all else.</p>
       </div>
       <div class="grid md:grid-cols-4 gap-8">
-        {[
-          { icon: 'verified', title: 'Verified Offers', desc: 'Every job listing is manually checked for authenticity.' },
-          { icon: 'link', title: 'Direct Links', desc: 'Apply directly on official company career portals.' },
-          { icon: 'mark_email_read', title: 'No Spam', desc: 'We never share your email with third-party advertisers.' },
-          { icon: 'update', title: 'Daily Updates', desc: 'New listings added every hour from top companies.' },
-        ].map((item) => (
-          <div class="text-center group">
-            <div class="w-16 h-16 mx-auto mb-6 bg-white dark:bg-slate-800 shadow-lg rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-              <span class="material-icons text-3xl">{item.icon}</span>
+        {
+          [
+            { icon: "verified", title: "Verified Offers", desc: "Every job listing is manually checked for authenticity." },
+            { icon: "link", title: "Direct Links", desc: "Apply directly on official company career portals." },
+            { icon: "mark_email_read", title: "No Spam", desc: "We never share your email with third-party advertisers." },
+            { icon: "update", title: "Daily Updates", desc: "New listings added every hour from top companies." },
+          ].map((item) => (
+            <div class="text-center group">
+              <div class="w-16 h-16 mx-auto mb-6 bg-white dark:bg-slate-800 shadow-lg rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                <span class="material-icons text-3xl">{item.icon}</span>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">{item.title}</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm">{item.desc}</p>
             </div>
-            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">{item.title}</h4>
-            <p class="text-slate-500 dark:text-slate-400 text-sm">{item.desc}</p>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
@@ -101,39 +101,39 @@ const popularTags = ['QA', 'Remote', 'Accounting', 'Junior', 'USA', 'Latam'];
     <div class="section-container">
       <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-10">Career Advice</h2>
       <div class="grid md:grid-cols-3 gap-8">
-        {[
-          {
-            tag: 'Interviews',
-            title: 'How to ace your next remote interview',
-            desc: 'Mastering virtual communication is the key to landing high-paying remote roles...',
-          },
-          {
-            tag: 'Resume Tips',
-            title: '5 Resume mistakes you must avoid',
-            desc: 'Recruiters spend an average of 6 seconds on each CV. Make yours count with these tips...',
-          },
-          {
-            tag: 'Growth',
-            title: 'Salary negotiation for junior roles',
-            desc: 'Know your value before you step into the room. A guide to negotiating your first offer...',
-          },
-        ].map((post) => (
-          <div class="card-hover overflow-hidden group">
-            <div class="h-48 overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-              <span class="material-icons text-6xl text-primary/30 group-hover:scale-110 transition-transform duration-500">
-                article
-              </span>
+        {
+          [
+            {
+              tag: "Interviews",
+              title: "How to ace your next remote interview",
+              desc: "Mastering virtual communication is the key to landing high-paying remote roles...",
+            },
+            {
+              tag: "Resume Tips",
+              title: "5 Resume mistakes you must avoid",
+              desc: "Recruiters spend an average of 6 seconds on each CV. Make yours count with these tips...",
+            },
+            {
+              tag: "Growth",
+              title: "Salary negotiation for junior roles",
+              desc: "Know your value before you step into the room. A guide to negotiating your first offer...",
+            },
+          ].map((post) => (
+            <div class="card-hover overflow-hidden group">
+              <div class="h-48 overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                <span class="material-icons text-6xl text-primary/30 group-hover:scale-110 transition-transform duration-500">article</span>
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-bold text-primary uppercase tracking-wider">{post.tag}</span>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-2 mb-3">{post.title}</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">{post.desc}</p>
+                <a class="inline-flex items-center gap-1 text-primary font-semibold text-sm mt-4" href="/blog">
+                  Read more <span class="material-icons text-xs">open_in_new</span>
+                </a>
+              </div>
             </div>
-            <div class="p-6">
-              <span class="text-xs font-bold text-primary uppercase tracking-wider">{post.tag}</span>
-              <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-2 mb-3">{post.title}</h3>
-              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">{post.desc}</p>
-              <a class="inline-flex items-center gap-1 text-primary font-semibold text-sm mt-4" href="/blog">
-                Read more <span class="material-icons text-xs">open_in_new</span>
-              </a>
-            </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>

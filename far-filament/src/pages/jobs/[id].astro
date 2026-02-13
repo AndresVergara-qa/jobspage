@@ -1,28 +1,26 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import JobCard from '../../components/JobCard.astro';
-import { getJobById, fetchJobs, timeAgo, getInitials } from '../../services/jobService';
+import Layout from "../../layouts/Layout.astro"
+import JobCard from "../../components/JobCard.astro"
+import { getJobById, fetchJobs, timeAgo, getInitials } from "../../services/jobService"
 
 export async function getStaticPaths() {
-  const jobs = await fetchJobs();
+  const jobs = await fetchJobs()
   return jobs.map((job) => ({
     params: { id: job.id },
     props: { job },
-  }));
+  }))
 }
 
-const { job } = Astro.props;
+const { job } = Astro.props
 
 if (!job) {
-  return Astro.redirect('/404');
+  return Astro.redirect("/404")
 }
 
-const allJobs = await fetchJobs();
-const relatedJobs = allJobs
-  .filter((j) => j.category === job.category && j.id !== job.id)
-  .slice(0, 3);
+const allJobs = await fetchJobs()
+const relatedJobs = allJobs.filter((j) => j.category === job.category && j.id !== job.id).slice(0, 3)
 
-const posted = timeAgo(job.postedAt);
+const posted = timeAgo(job.postedAt)
 ---
 
 <Layout title={`${job.title} | JobRadar`}>
@@ -31,7 +29,7 @@ const posted = timeAgo(job.postedAt);
     <nav class="flex items-center gap-2 text-xs font-medium text-slate-500 uppercase tracking-wider">
       <a class="hover:text-primary" href="/">Home</a>
       <span class="material-icons text-[14px]">chevron_right</span>
-      <a class="hover:text-primary" href={`/categories/${job.category.toLowerCase().replace(/\s+/g, '-')}`}>{job.category}</a>
+      <a class="hover:text-primary" href={`/categories/${job.category.toLowerCase().replace(/\s+/g, "-")}`}>{job.category}</a>
       <span class="material-icons text-[14px]">chevron_right</span>
       <span class="text-slate-900 dark:text-slate-100">{job.title}</span>
     </nav>
@@ -47,11 +45,13 @@ const posted = timeAgo(job.postedAt);
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
             <div class="flex gap-5">
               <div class="w-16 h-16 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden flex-shrink-0">
-                {job.logoUrl ? (
-                  <img alt={`${job.company} Logo`} class="w-full h-full object-cover" src={job.logoUrl} />
-                ) : (
-                  <span class="text-primary font-bold text-2xl">{getInitials(job.company)}</span>
-                )}
+                {
+                  job.logoUrl ? (
+                    <img alt={`${job.company} Logo`} class="w-full h-full object-cover" src={job.logoUrl} />
+                  ) : (
+                    <span class="text-primary font-bold text-2xl">{getInitials(job.company)}</span>
+                  )
+                }
               </div>
               <div>
                 <h1 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white leading-tight">{job.title}</h1>
@@ -72,17 +72,8 @@ const posted = timeAgo(job.postedAt);
               </div>
             </div>
             <div class="flex flex-col gap-3">
-              {job.salary && (
-                <div class="tag-primary self-start md:self-end font-bold">
-                  {job.salary}
-                </div>
-              )}
-              <a
-                href={job.applicationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-primary text-center shadow-primary-lg"
-              >
+              {job.salary && <div class="tag-primary self-start md:self-end font-bold">{job.salary}</div>}
+              <a href={job.applicationUrl} target="_blank" rel="noopener noreferrer" class="btn-primary text-center shadow-primary-lg">
                 Apply on Official Site
               </a>
             </div>
@@ -104,40 +95,44 @@ const posted = timeAgo(job.postedAt);
             </section>
 
             <!-- Responsibilities -->
-            {job.responsibilities && job.responsibilities.length > 0 && (
-              <section class="mb-10">
-                <h2 class="text-xl font-bold mb-4 text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-1.5 h-6 bg-primary rounded-full"></span>
-                  Key Responsibilities
-                </h2>
-                <ul class="space-y-3">
-                  {job.responsibilities.map((item) => (
-                    <li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
-                      <span class="material-icons text-primary mt-0.5 text-[20px]">check_circle</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
+            {
+              job.responsibilities && job.responsibilities.length > 0 && (
+                <section class="mb-10">
+                  <h2 class="text-xl font-bold mb-4 text-slate-900 dark:text-white flex items-center gap-2">
+                    <span class="w-1.5 h-6 bg-primary rounded-full" />
+                    Key Responsibilities
+                  </h2>
+                  <ul class="space-y-3">
+                    {job.responsibilities.map((item) => (
+                      <li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
+                        <span class="material-icons text-primary mt-0.5 text-[20px]">check_circle</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )
+            }
 
             <!-- Requirements -->
-            {job.requirements && job.requirements.length > 0 && (
-              <section class="mb-10">
-                <h2 class="text-xl font-bold mb-4 text-slate-900 dark:text-white flex items-center gap-2">
-                  <span class="w-1.5 h-6 bg-primary rounded-full"></span>
-                  Requirements
-                </h2>
-                <ul class="space-y-3">
-                  {job.requirements.map((item) => (
-                    <li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
-                      <span class="material-icons text-primary mt-0.5 text-[20px]">arrow_forward</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
+            {
+              job.requirements && job.requirements.length > 0 && (
+                <section class="mb-10">
+                  <h2 class="text-xl font-bold mb-4 text-slate-900 dark:text-white flex items-center gap-2">
+                    <span class="w-1.5 h-6 bg-primary rounded-full" />
+                    Requirements
+                  </h2>
+                  <ul class="space-y-3">
+                    {job.requirements.map((item) => (
+                      <li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
+                        <span class="material-icons text-primary mt-0.5 text-[20px]">arrow_forward</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )
+            }
           </article>
 
           <!-- Bottom CTA -->
@@ -151,7 +146,8 @@ const posted = timeAgo(job.postedAt);
               Apply on Official Site
             </a>
             <p class="text-xs text-slate-500 dark:text-slate-500 italic max-w-sm mx-auto mt-3">
-              You will be redirected to the company's official site to complete your application. JobRadar ensures all external links are verified and secure.
+              You will be redirected to the company's official site to complete your application. JobRadar ensures all external links are verified and
+              secure.
             </p>
           </div>
         </div>
@@ -161,37 +157,39 @@ const posted = timeAgo(job.postedAt);
       <aside class="lg:col-span-4">
         <div class="sticky top-24 space-y-6">
           <!-- Related Jobs -->
-          {relatedJobs.length > 0 && (
-            <div class="card overflow-hidden">
-              <div class="p-5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
-                <h3 class="font-bold text-slate-900 dark:text-white">Related Jobs</h3>
-              </div>
-              <div class="divide-y divide-slate-100 dark:divide-slate-800">
-                {relatedJobs.map((rj) => (
-                  <a class="block p-5 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group" href={`/jobs/${rj.id}`}>
-                    <div class="flex gap-4">
-                      <div class="w-10 h-10 rounded bg-slate-100 dark:bg-slate-700 flex-shrink-0 flex items-center justify-center">
-                        <span class="text-primary font-bold text-sm">{getInitials(rj.company)}</span>
-                      </div>
-                      <div>
-                        <h4 class="font-semibold text-sm group-hover:text-primary transition-colors">{rj.title}</h4>
-                        <p class="text-xs text-slate-500 mt-1">{rj.company}</p>
-                        <div class="flex items-center gap-2 mt-2">
-                          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">{rj.location}</span>
-                          {rj.salary && (
-                            <>
-                              <span class="text-slate-300 dark:text-slate-700">•</span>
-                              <span class="text-[10px] font-bold uppercase tracking-wider text-primary">{rj.salary}</span>
-                            </>
-                          )}
+          {
+            relatedJobs.length > 0 && (
+              <div class="card overflow-hidden">
+                <div class="p-5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+                  <h3 class="font-bold text-slate-900 dark:text-white">Related Jobs</h3>
+                </div>
+                <div class="divide-y divide-slate-100 dark:divide-slate-800">
+                  {relatedJobs.map((rj) => (
+                    <a class="block p-5 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group" href={`/jobs/${rj.id}`}>
+                      <div class="flex gap-4">
+                        <div class="w-10 h-10 rounded bg-slate-100 dark:bg-slate-700 flex-shrink-0 flex items-center justify-center">
+                          <span class="text-primary font-bold text-sm">{getInitials(rj.company)}</span>
+                        </div>
+                        <div>
+                          <h4 class="font-semibold text-sm group-hover:text-primary transition-colors">{rj.title}</h4>
+                          <p class="text-xs text-slate-500 mt-1">{rj.company}</p>
+                          <div class="flex items-center gap-2 mt-2">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">{rj.location}</span>
+                            {rj.salary && (
+                              <>
+                                <span class="text-slate-300 dark:text-slate-700">•</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-primary">{rj.salary}</span>
+                              </>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </a>
-                ))}
+                    </a>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )
+          }
 
           <!-- Alert CTA -->
           <div class="bg-primary rounded-xl p-6 text-white overflow-hidden relative">

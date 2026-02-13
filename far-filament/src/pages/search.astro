@@ -1,16 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import SearchBar from '../components/SearchBar.astro';
-import FilterSidebar from '../components/FilterSidebar.astro';
-import JobCard from '../components/JobCard.astro';
-import EmptyState from '../components/EmptyState.astro';
-import { searchJobs, fetchJobs } from '../services/jobService';
+import Layout from "../layouts/Layout.astro"
+import SearchBar from "../components/SearchBar.astro"
+import FilterSidebar from "../components/FilterSidebar.astro"
+import JobCard from "../components/JobCard.astro"
+import EmptyState from "../components/EmptyState.astro"
+import { searchJobs, fetchJobs } from "../services/jobService"
 
-const query = Astro.url.searchParams.get('q') || '';
-const jobs = query ? await searchJobs(query) : await fetchJobs();
+const query = Astro.url.searchParams.get("q") || ""
+const jobs = query ? await searchJobs(query) : await fetchJobs()
 ---
 
-<Layout title={query ? `"${query}" Jobs | JobRadar` : 'All Jobs | JobRadar'}>
+<Layout title={query ? `"${query}" Jobs | JobRadar` : "All Jobs | JobRadar"}>
   <!-- Search Header -->
   <div class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-6">
     <div class="section-container">
@@ -30,10 +30,10 @@ const jobs = query ? await searchJobs(query) : await fetchJobs();
       <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-2 gap-3">
         <div>
           <h1 class="text-2xl font-bold text-slate-900 dark:text-white">
-            {query ? `Results for: ${query}` : 'All Jobs'}
+            {query ? `Results for: ${query}` : "All Jobs"}
           </h1>
           <p class="text-slate-500 text-sm mt-1">
-            Showing {jobs.length} verified listing{jobs.length !== 1 ? 's' : ''}
+            Showing {jobs.length} verified listing{jobs.length !== 1 ? "s" : ""}
           </p>
         </div>
         <div class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
@@ -45,18 +45,17 @@ const jobs = query ? await searchJobs(query) : await fetchJobs();
         </div>
       </div>
 
-      {jobs.length > 0 ? (
-        <div class="space-y-4">
-          {jobs.map((job) => (
-            <JobCard job={job} />
-          ))}
-        </div>
-      ) : (
-        <EmptyState
-          title="No jobs found"
-          message={`We couldn't find any jobs matching "${query}". Try a different search.`}
-        />
-      )}
+      {
+        jobs.length > 0 ? (
+          <div class="space-y-4">
+            {jobs.map((job) => (
+              <JobCard job={job} />
+            ))}
+          </div>
+        ) : (
+          <EmptyState title="No jobs found" message={`We couldn't find any jobs matching "${query}". Try a different search.`} />
+        )
+      }
     </section>
 
     <!-- Right Sidebar -->
@@ -67,18 +66,14 @@ const jobs = query ? await searchJobs(query) : await fetchJobs();
           <span class="material-icons">notifications_active</span>
           <h3 class="font-bold text-lg">Job Alert</h3>
         </div>
-        <p class="text-sm text-white/80 mb-4 leading-relaxed">
-          Get new jobs daily matching your search in your inbox.
-        </p>
+        <p class="text-sm text-white/80 mb-4 leading-relaxed">Get new jobs daily matching your search in your inbox.</p>
         <div class="space-y-3">
           <input
             class="w-full bg-white/20 border-white/30 text-white placeholder-white/60 rounded-lg px-4 py-2.5 text-sm focus:ring-white/50 focus:border-white/50"
             placeholder="Email address"
             type="email"
           />
-          <button class="w-full bg-white text-primary font-bold py-2.5 rounded-lg text-sm hover:bg-slate-100 transition-all">
-            Subscribe Now
-          </button>
+          <button class="w-full bg-white text-primary font-bold py-2.5 rounded-lg text-sm hover:bg-slate-100 transition-all"> Subscribe Now </button>
         </div>
       </div>
 
@@ -86,18 +81,16 @@ const jobs = query ? await searchJobs(query) : await fetchJobs();
       <div class="card p-5">
         <h3 class="font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider mb-4">Career Tips</h3>
         <ul class="space-y-3">
-          {[
-            '5 Skills every QA Lead needs',
-            'Mastering Automation Interviews',
-            'Remote Work: Productivity Hacks',
-          ].map((tip) => (
-            <li>
-              <a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary flex items-center gap-2 group" href="/blog">
-                <span class="material-icons text-sm text-slate-300 group-hover:text-primary">article</span>
-                {tip}
-              </a>
-            </li>
-          ))}
+          {
+            ["5 Skills every QA Lead needs", "Mastering Automation Interviews", "Remote Work: Productivity Hacks"].map((tip) => (
+              <li>
+                <a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary flex items-center gap-2 group" href="/blog">
+                  <span class="material-icons text-sm text-slate-300 group-hover:text-primary">article</span>
+                  {tip}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </aside>

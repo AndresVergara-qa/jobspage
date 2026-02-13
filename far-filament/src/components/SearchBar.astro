@@ -1,13 +1,17 @@
 ---
 interface Props {
-  placeholder?: string;
+  placeholder?: string
 }
 
-const { placeholder = 'Job title, keyword, or company' } = Astro.props;
+const { placeholder = "Job title, keyword, or company" } = Astro.props
 ---
 
 <div class="max-w-4xl mx-auto w-full">
-  <form action="/search" method="get" class="bg-white dark:bg-slate-800 p-2 rounded-xl shadow-xl shadow-primary/5 border border-slate-200 dark:border-slate-700 flex flex-col md:flex-row gap-2">
+  <form
+    action="/search"
+    method="get"
+    class="bg-white dark:bg-slate-800 p-2 rounded-xl shadow-xl shadow-primary/5 border border-slate-200 dark:border-slate-700 flex flex-col md:flex-row gap-2"
+  >
     <div class="flex-1 flex items-center px-4 py-2 gap-3 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-700">
       <span class="material-icons text-slate-400">search</span>
       <input
@@ -26,11 +30,6 @@ const { placeholder = 'Job title, keyword, or company' } = Astro.props;
         type="text"
       />
     </div>
-    <button
-      type="submit"
-      class="bg-primary hover:bg-primary-600 text-white font-bold py-3 px-8 rounded-lg transition-all"
-    >
-      Search Jobs
-    </button>
+    <button type="submit" class="bg-primary hover:bg-primary-600 text-white font-bold py-3 px-8 rounded-lg transition-all"> Search Jobs </button>
   </form>
 </div>

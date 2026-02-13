@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro"
 ---
 
 <Layout title="Contact Us | JobRadar">
@@ -8,9 +8,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="max-w-2xl mx-auto">
         <div class="text-center mb-12">
           <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Contact Us</h1>
-          <p class="text-slate-600 dark:text-slate-400">
-            Have a question or feedback? We'd love to hear from you.
-          </p>
+          <p class="text-slate-600 dark:text-slate-400">Have a question or feedback? We'd love to hear from you.</p>
         </div>
 
         <div class="card p-8">
@@ -39,17 +37,19 @@ import Layout from '../layouts/Layout.astro';
 
         <!-- Info cards -->
         <div class="grid md:grid-cols-3 gap-6 mt-12">
-          {[
-            { icon: 'email', title: 'Email', detail: 'hello@jobradar.com' },
-            { icon: 'schedule', title: 'Response Time', detail: 'Within 24 hours' },
-            { icon: 'location_on', title: 'Location', detail: 'Remote-first company' },
-          ].map((info) => (
-            <div class="card p-6 text-center">
-              <span class="material-icons text-primary text-2xl mb-3">{info.icon}</span>
-              <h4 class="font-semibold text-slate-900 dark:text-white">{info.title}</h4>
-              <p class="text-sm text-slate-500 mt-1">{info.detail}</p>
-            </div>
-          ))}
+          {
+            [
+              { icon: "email", title: "Email", detail: "hello@jobradar.com" },
+              { icon: "schedule", title: "Response Time", detail: "Within 24 hours" },
+              { icon: "location_on", title: "Location", detail: "Remote-first company" },
+            ].map((info) => (
+              <div class="card p-6 text-center">
+                <span class="material-icons text-primary text-2xl mb-3">{info.icon}</span>
+                <h4 class="font-semibold text-slate-900 dark:text-white">{info.title}</h4>
+                <p class="text-sm text-slate-500 mt-1">{info.detail}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>

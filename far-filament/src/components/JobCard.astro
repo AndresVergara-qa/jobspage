@@ -1,33 +1,32 @@
 ---
-import type { Job } from '../services/jobService';
-import { timeAgo, getInitials } from '../services/jobService';
+import type { Job } from "../services/jobService"
+import { timeAgo, getInitials } from "../services/jobService"
 
 interface Props {
-  job: Job;
+  job: Job
 }
 
-const { job } = Astro.props;
-const posted = timeAgo(job.postedAt);
+const { job } = Astro.props
+const posted = timeAgo(job.postedAt)
 
 const typeColor: Record<string, string> = {
-  'Full-time': 'tag-success',
-  'Part-time': 'tag-warning',
-  Contract: 'tag-warning',
-  Freelance: 'tag-neutral',
-};
+  "Full-time": "tag-success",
+  "Part-time": "tag-warning",
+  Contract: "tag-warning",
+  Freelance: "tag-neutral",
+}
 ---
 
-<a
-  href={`/jobs/${job.id}`}
-  class="card-hover p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 group block"
->
+<a href={`/jobs/${job.id}`} class="card-hover p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 group block">
   <!-- Logo -->
   <div class="w-14 h-14 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden shrink-0">
-    {job.logoUrl ? (
-      <img src={job.logoUrl} alt={`${job.company} logo`} class="w-full h-full object-cover" />
-    ) : (
-      <span class="text-primary font-bold text-lg">{getInitials(job.company)}</span>
-    )}
+    {
+      job.logoUrl ? (
+        <img src={job.logoUrl} alt={`${job.company} logo`} class="w-full h-full object-cover" />
+      ) : (
+        <span class="text-primary font-bold text-lg">{getInitials(job.company)}</span>
+      )
+    }
   </div>
 
   <!-- Info -->
@@ -51,14 +50,12 @@ const typeColor: Record<string, string> = {
       </span>
     </div>
     <div class="flex flex-wrap gap-2 mt-3">
-      <span class={typeColor[job.type] || 'tag-neutral'}>{job.type}</span>
+      <span class={typeColor[job.type] || "tag-neutral"}>{job.type}</span>
       <span class="tag-primary">{job.level}</span>
       {job.salary && <span class="tag-salary">{job.salary}</span>}
     </div>
   </div>
 
   <!-- CTA -->
-  <span class="btn-outline w-full sm:w-auto text-center text-sm whitespace-nowrap">
-    View Offer
-  </span>
+  <span class="btn-outline w-full sm:w-auto text-center text-sm whitespace-nowrap"> View Offer </span>
 </a>

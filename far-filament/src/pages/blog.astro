@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro"
 ---
 
 <Layout title="Career Blog | JobRadar">
@@ -7,65 +7,63 @@ import Layout from '../layouts/Layout.astro';
     <div class="section-container">
       <div class="text-center mb-12">
         <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Career Blog</h1>
-        <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
-          Tips, insights, and guides to accelerate your career growth.
-        </p>
+        <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">Tips, insights, and guides to accelerate your career growth.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        {[
-          {
-            tag: 'Interviews',
-            title: 'How to ace your next remote interview',
-            desc: 'Mastering virtual communication is the key to landing high-paying remote roles. Learn the proven strategies top candidates use.',
-            icon: 'videocam',
-          },
-          {
-            tag: 'Resume Tips',
-            title: '5 Resume mistakes you must avoid',
-            desc: 'Recruiters spend an average of 6 seconds on each CV. Make yours count with these actionable tips from hiring managers.',
-            icon: 'description',
-          },
-          {
-            tag: 'Growth',
-            title: 'Salary negotiation for junior roles',
-            desc: 'Know your value before you step into the room. A comprehensive guide to negotiating your first professional offer.',
-            icon: 'trending_up',
-          },
-          {
-            tag: 'Remote Work',
-            title: 'Building a productive home office',
-            desc: 'Create an environment that maximizes focus and minimizes distractions. Expert-recommended setups for remote workers.',
-            icon: 'home',
-          },
-          {
-            tag: 'Career Switch',
-            title: 'Breaking into tech from a non-tech background',
-            desc: 'Thousands have made the transition successfully. Here is a roadmap with real stories and practical steps.',
-            icon: 'swap_horiz',
-          },
-          {
-            tag: 'Networking',
-            title: 'LinkedIn strategies that actually work',
-            desc: 'Go beyond connection requests. Learn how to build meaningful professional relationships that lead to opportunities.',
-            icon: 'people',
-          },
-        ].map((post) => (
-          <div class="card-hover overflow-hidden group">
-            <div class="h-40 overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-              <span class="material-icons text-5xl text-primary/30 group-hover:scale-110 transition-transform duration-500">
-                {post.icon}
-              </span>
+        {
+          [
+            {
+              tag: "Interviews",
+              title: "How to ace your next remote interview",
+              desc: "Mastering virtual communication is the key to landing high-paying remote roles. Learn the proven strategies top candidates use.",
+              icon: "videocam",
+            },
+            {
+              tag: "Resume Tips",
+              title: "5 Resume mistakes you must avoid",
+              desc: "Recruiters spend an average of 6 seconds on each CV. Make yours count with these actionable tips from hiring managers.",
+              icon: "description",
+            },
+            {
+              tag: "Growth",
+              title: "Salary negotiation for junior roles",
+              desc: "Know your value before you step into the room. A comprehensive guide to negotiating your first professional offer.",
+              icon: "trending_up",
+            },
+            {
+              tag: "Remote Work",
+              title: "Building a productive home office",
+              desc: "Create an environment that maximizes focus and minimizes distractions. Expert-recommended setups for remote workers.",
+              icon: "home",
+            },
+            {
+              tag: "Career Switch",
+              title: "Breaking into tech from a non-tech background",
+              desc: "Thousands have made the transition successfully. Here is a roadmap with real stories and practical steps.",
+              icon: "swap_horiz",
+            },
+            {
+              tag: "Networking",
+              title: "LinkedIn strategies that actually work",
+              desc: "Go beyond connection requests. Learn how to build meaningful professional relationships that lead to opportunities.",
+              icon: "people",
+            },
+          ].map((post) => (
+            <div class="card-hover overflow-hidden group">
+              <div class="h-40 overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                <span class="material-icons text-5xl text-primary/30 group-hover:scale-110 transition-transform duration-500">{post.icon}</span>
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-bold text-primary uppercase tracking-wider">{post.tag}</span>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-2 mb-3">{post.title}</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-3">{post.desc}</p>
+                <span class="inline-flex items-center gap-1 text-primary font-semibold text-sm mt-4 cursor-pointer">
+                  Coming soon <span class="material-icons text-xs">schedule</span>
+                </span>
+              </div>
             </div>
-            <div class="p-6">
-              <span class="text-xs font-bold text-primary uppercase tracking-wider">{post.tag}</span>
-              <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-2 mb-3">{post.title}</h3>
-              <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-3">{post.desc}</p>
-              <span class="inline-flex items-center gap-1 text-primary font-semibold text-sm mt-4 cursor-pointer">
-                Coming soon <span class="material-icons text-xs">schedule</span>
-              </span>
-            </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
