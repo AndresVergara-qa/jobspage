@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Post a Job | JobRadar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d7ff2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-input-focus:focus {
+            outline: none;
+            border-color: #0d7ff2;
+            box-shadow: 0 0 0 3px rgba(13, 127, 242, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen flex flex-col">
+<!-- Header -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-icons text-white text-xl">radar</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">JobRadar</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Find Jobs</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Companies</a>
+<a class="text-sm font-semibold text-primary" href="#">Post a Job</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-sm font-medium text-slate-600 dark:text-slate-400">Sign In</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow pb-16">
+<!-- Hero Section -->
+<section class="py-12 md:py-16 text-center">
+<div class="max-w-3xl mx-auto px-4">
+<h1 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Post a Job</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400">Submit your job listing for review. Our team verifies every listing for quality.</p>
+</div>
+</section>
+<!-- Form Container -->
+<div class="max-w-3xl mx-auto px-4">
+<!-- Information Alert Box -->
+<div class="mb-8 p-5 bg-primary/5 border border-primary/30 rounded-xl flex gap-4">
+<div class="flex-shrink-0">
+<span class="material-icons text-primary">info</span>
+</div>
+<div>
+<p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                        JobRadar automatically aggregates listings. Manual submissions are subject to a <span class="font-semibold">24-hour verification process</span> to ensure platform quality and user trust.
+                    </p>
+</div>
+</div>
+<!-- Main Form Card -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-8 md:p-10">
+<form action="#" class="space-y-6" method="POST">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Job Title -->
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2" for="job-title">Job Title</label>
+<input class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 form-input-focus transition-all" id="job-title" name="job-title" placeholder="e.g. Senior Frontend Developer" type="text"/>
+</div>
+<!-- Company Name -->
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2" for="company-name">Company Name</label>
+<input class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 form-input-focus transition-all" id="company-name" name="company-name" placeholder="Enter company name" type="text"/>
+</div>
+<!-- Location & Remote -->
+<div class="md:col-span-1">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2" for="location">Location</label>
+<div class="relative">
+<span class="material-icons absolute left-3 top-2.5 text-slate-400 text-sm">location_on</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 form-input-focus transition-all" id="location" name="location" placeholder="City, Country" type="text"/>
+</div>
+<div class="mt-3 flex items-center">
+<input class="h-4 w-4 text-primary focus:ring-primary border-slate-300 rounded" id="remote" name="remote" type="checkbox"/>
+<label class="ml-2 block text-sm text-slate-600 dark:text-slate-400" for="remote">
+                                    This is a remote position
+                                </label>
+</div>
+</div>
+<!-- Employment Type -->
+<div class="md:col-span-1">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2" for="employment-type">Employment Type</label>
+<select class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white form-input-focus transition-all" id="employment-type" name="employment-type">
+<option value="full-time">Full-time</option>
+<option value="part-time">Part-time</option>
+<option value="contract">Contract</option>
+<option value="freelance">Freelance</option>
+<option value="internship">Internship</option>
+</select>
+</div>
+<!-- Job Description -->
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2" for="description">Job Description</label>
+<textarea class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 form-input-focus transition-all resize-none" id="description" name="description" placeholder="Outline the responsibilities, requirements, and benefits..." rows="8"></textarea>
+</div>
+</div>
+<div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<button class="bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-all active:scale-95" type="submit">
+                                Submit Job
+                            </button>
+<span class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary rounded border border-primary/20">Beta</span>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-500 italic">
+                            By submitting, you agree to JobRadar's Listing Policy.
+                        </p>
+</div>
+</form>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="bg-slate-800 p-1.5 rounded-lg">
+<span class="material-icons text-white text-lg">radar</span>
+</div>
+<span class="text-lg font-bold text-white">JobRadar</span>
+</div>
+<div class="flex gap-8 text-sm">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-slate-800 text-center text-xs">
+                © 2024 JobRadar Inc. All rights reserved. Professional job aggregation and verification.
+            </div>
+</div>
+</footer>
+</body></html>

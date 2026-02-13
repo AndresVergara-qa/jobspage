@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JobRadar | QA Engineer Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#0d7ff2",
+                "background-light": "#f5f7f8",
+                "background-dark": "#101922",
+              },
+              fontFamily: {
+                "display": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Global Header -->
+<header class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2" href="#">
+<div class="bg-primary w-8 h-8 rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-xl">radar</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">JobRadar</span>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-primary font-medium" href="#">Jobs</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Categories</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Companies</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Salaries</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-600 dark:text-slate-400 font-medium px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all">Login</button>
+<button class="bg-primary hover:bg-primary/90 text-white font-medium px-5 py-2 rounded-lg shadow-sm transition-all">Sign Up</button>
+</div>
+</div>
+</header>
+<!-- Search Header Bar -->
+<div class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-6">
+<div class="max-w-7xl mx-auto px-4">
+<div class="flex flex-col md:flex-row gap-3 p-2 bg-background-light dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+<div class="flex-1 flex items-center gap-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2">
+<span class="material-icons text-slate-400">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white placeholder-slate-400" placeholder="Job title, keywords..." type="text" value="QA Engineer"/>
+</div>
+<div class="flex-1 flex items-center gap-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2">
+<span class="material-icons text-slate-400">location_on</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white placeholder-slate-400" placeholder="City or remote..." type="text" value="Remote"/>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-2 rounded-lg transition-all shadow-md">
+                    Search
+                </button>
+</div>
+</div>
+</div>
+<!-- Main Layout Container -->
+<main class="max-w-7xl mx-auto px-4 py-8 flex-1 grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Left Sidebar: Filters -->
+<aside class="md:col-span-3 space-y-6">
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider">Filter Results</h3>
+<button class="text-primary text-xs font-semibold hover:underline">Clear all</button>
+</div>
+<!-- Job Type -->
+<div class="mb-6">
+<h4 class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Job Type</h4>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">Full-time</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">Contract</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">Part-time</span>
+</label>
+</div>
+</div>
+<!-- Experience Level -->
+<div class="mb-6">
+<h4 class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Experience Level</h4>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">Entry Level</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">Mid Level</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">Senior Level</span>
+</label>
+</div>
+</div>
+<!-- Date Posted -->
+<div class="mb-2">
+<h4 class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Date Posted</h4>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-full border-slate-300 text-primary focus:ring-primary h-4 w-4" name="date" type="radio"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">Last 24 hours</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded-full border-slate-300 text-primary focus:ring-primary h-4 w-4" name="date" type="radio"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">Last 7 days</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-full border-slate-300 text-primary focus:ring-primary h-4 w-4" name="date" type="radio"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">Anytime</span>
+</label>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content: Job Listings -->
+<section class="md:col-span-6 space-y-4">
+<div class="flex items-end justify-between mb-2">
+<div>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white">Search results for: QA Engineer</h1>
+<p class="text-slate-500 text-sm mt-1">Showing 248 verified listings found</p>
+</div>
+<div class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<span>Sort by:</span>
+<select class="bg-transparent border-none text-primary font-semibold focus:ring-0 cursor-pointer p-0 pr-6">
+<option>Most Recent</option>
+<option>Highest Salary</option>
+<option>Relevance</option>
+</select>
+</div>
+</div>
+<!-- Job Cards -->
+<div class="space-y-4">
+<!-- Card 1 -->
+<div class="group bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all border-l-4 border-l-primary">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-icons text-slate-400">apartment</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Senior QA Automation Engineer</h2>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-slate-600 dark:text-slate-400 font-medium">TechFlow Solutions</span>
+<span class="material-icons text-blue-500 text-sm" title="Verified Employer">verified</span>
+</div>
+</div>
+</div>
+<button class="text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-icons">bookmark_border</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">Remote</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-semibold rounded-full">Full-time</span>
+<span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold rounded-full">$120k - $160k</span>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+<span class="text-xs text-slate-400 flex items-center gap-1">
+<span class="material-icons text-xs">schedule</span> Posted 2 hours ago
+                        </span>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all">View details</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-icons text-slate-400">cloud</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Software QA Tester</h2>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-slate-600 dark:text-slate-400 font-medium">CloudScale Inc.</span>
+</div>
+</div>
+</div>
+<button class="text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-icons">bookmark_border</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-semibold rounded-full">Hybrid</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-semibold rounded-full">Full-time</span>
+<span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold rounded-full">$90k - $120k</span>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+<span class="text-xs text-slate-400 flex items-center gap-1">
+<span class="material-icons text-xs">schedule</span> Posted 1 day ago
+                        </span>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all">View details</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-icons text-slate-400">payments</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Lead QA Engineer (FinTech)</h2>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-slate-600 dark:text-slate-400 font-medium">BrightFinance</span>
+<span class="material-icons text-blue-500 text-sm" title="Verified Employer">verified</span>
+</div>
+</div>
+</div>
+<button class="text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-icons">bookmark_border</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">Remote</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-semibold rounded-full">Permanent</span>
+<span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold rounded-full">$140k - $185k</span>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+<span class="text-xs text-slate-400 flex items-center gap-1">
+<span class="material-icons text-xs">schedule</span> Posted 2 days ago
+                        </span>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all">View details</button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-center gap-2 py-8">
+<button class="flex items-center gap-1 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all">
+<span class="material-icons text-lg leading-none">chevron_left</span> Previous
+                </button>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold text-sm">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 font-medium text-sm transition-all">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 font-medium text-sm transition-all">3</button>
+<span class="px-2 text-slate-400">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 font-medium text-sm transition-all">12</button>
+</div>
+<button class="flex items-center gap-1 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all">
+                    Next <span class="material-icons text-lg leading-none">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Right Sidebar: Widgets -->
+<aside class="md:col-span-3 space-y-6">
+<!-- Job Alert Box -->
+<div class="bg-primary p-6 rounded-xl text-white shadow-lg shadow-primary/20">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-icons">notifications_active</span>
+<h3 class="font-bold text-lg">Job Alert</h3>
+</div>
+<p class="text-sm text-primary-content/90 mb-4 leading-relaxed">Get new jobs daily matching 'QA Engineer' in your inbox.</p>
+<div class="space-y-3">
+<input class="w-full bg-white/20 border-white/30 text-white placeholder-white/60 rounded-lg px-4 py-2.5 text-sm focus:ring-white/50 focus:border-white/50" placeholder="Email address" type="email"/>
+<button class="w-full bg-white text-primary font-bold py-2.5 rounded-lg text-sm hover:bg-slate-100 transition-all">Subscribe Now</button>
+</div>
+</div>
+<!-- Featured Jobs -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h3 class="font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider mb-4">Featured Jobs</h3>
+<div class="space-y-4">
+<a class="block group" href="#">
+<p class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-1">Staff Quality Assurance Engineer</p>
+<p class="text-xs text-slate-500 mt-0.5">Global Systems • $180k+</p>
+</a>
+<a class="block group" href="#">
+<p class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-1">QA Lead - Mobile Apps</p>
+<p class="text-xs text-slate-500 mt-0.5">AppWorks Studio • $150k</p>
+</a>
+<a class="block group" href="#">
+<p class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-1">Manual Tester (Part-time)</p>
+<p class="text-xs text-slate-500 mt-0.5">StartupLink • $45/hr</p>
+</a>
+</div>
+</div>
+<!-- Career Tips -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h3 class="font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider mb-4">Career Tips</h3>
+<ul class="space-y-3">
+<li>
+<a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary flex items-center gap-2 group" href="#">
+<span class="material-icons text-sm text-slate-300 group-hover:text-primary">article</span>
+                            5 Skills every QA Lead needs
+                        </a>
+</li>
+<li>
+<a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary flex items-center gap-2 group" href="#">
+<span class="material-icons text-sm text-slate-300 group-hover:text-primary">article</span>
+                            Mastering Automation Interviews
+                        </a>
+</li>
+<li>
+<a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary flex items-center gap-2 group" href="#">
+<span class="material-icons text-sm text-slate-300 group-hover:text-primary">article</span>
+                            Remote Work: Productivity Hacks
+                        </a>
+</li>
+</ul>
+</div>
+</aside>
+</main>
+<!-- Dark Footer -->
+<footer class="bg-slate-950 text-slate-400 py-16 mt-12 border-t border-slate-900">
+<div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+<div class="bg-primary w-8 h-8 rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-xl">radar</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-white">JobRadar</span>
+</div>
+<p class="text-sm leading-relaxed">Connecting verified talent with world-class opportunities. The most trusted aggregator for tech professionals.</p>
+<div class="flex gap-4">
+<a class="hover:text-white transition-colors" href="#"><span class="material-icons">facebook</span></a>
+<a class="hover:text-white transition-colors" href="#"><span class="material-icons">alternate_email</span></a>
+<a class="hover:text-white transition-colors" href="#"><span class="material-icons">share</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">For Candidates</h4>
+<ul class="space-y-3 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Browse Jobs</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Career Advice</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Salary Tools</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Job Alerts</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">For Employers</h4>
+<ul class="space-y-3 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Post a Job</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Talent Solutions</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Pricing Plans</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Hiring Blog</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Company</h4>
+<ul class="space-y-3 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Contact Support</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-4 mt-16 pt-8 border-t border-slate-900 text-center text-xs">
+            © 2024 JobRadar Inc. All rights reserved. Verified Listings &amp; Verified Trust.
+        </div>
+</footer>
+</body></html>

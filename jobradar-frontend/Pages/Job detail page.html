@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Senior QA Engineer | JobRadar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d7ff2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+<div class="container mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 font-bold text-2xl text-primary">
+<span class="material-icons text-3xl">radar</span>
+<span>JobRadar</span>
+</div>
+<nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Find Jobs</a>
+<a class="hover:text-primary transition-colors" href="#">Companies</a>
+<a class="hover:text-primary transition-colors" href="#">Salaries</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary">Sign In</button>
+<button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-semibold transition-all">Post a Job</button>
+</div>
+</div>
+</header>
+<!-- Breadcrumbs -->
+<div class="container mx-auto px-4 py-4">
+<nav class="flex items-center gap-2 text-xs font-medium text-slate-500 uppercase tracking-wider">
+<a class="hover:text-primary" href="#">Home</a>
+<span class="material-icons text-[14px]">chevron_right</span>
+<a class="hover:text-primary" href="#">Engineering</a>
+<span class="material-icons text-[14px]">chevron_right</span>
+<span class="text-slate-900 dark:text-slate-100">Senior QA Engineer</span>
+</nav>
+</div>
+<!-- Main Content Area -->
+<main class="container mx-auto px-4 pb-20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Job Details -->
+<div class="lg:col-span-8">
+<!-- Job Header Card -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 mb-6">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+<div class="flex gap-5">
+<div class="w-16 h-16 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden flex-shrink-0">
+<img alt="Company Logo" class="w-full h-full object-cover" data-alt="Corporate technology company logo abstract design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAif8ckZIBAZIZgYDqg8FKytfVn8nem0I_eeIhHJZ7cGiAVSucA0MX2XHWmzRG7AL2TOMWkNCxDy8P-DhLwQtrYh2FpekZmIoKl2VCe2Mr9nyFVWyNmLQJMIUWX6r2vfsNDhHMulPIuY6LqCQKug703Ewpfq-DQ9Zcv0mtLfCSk_FghNYp0aY-3yby3W4ZE1VgVMijhY6OVnVHz95o2gfm2UNwiES9pJVkqG13pPSXLlZIgHepCJ5-dxiuJqkMWoWCFBJtslBXJ_mbF"/>
+</div>
+<div>
+<h1 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white leading-tight">Senior QA Engineer</h1>
+<div class="flex flex-wrap items-center gap-y-2 gap-x-4 mt-2 text-slate-600 dark:text-slate-400">
+<div class="flex items-center gap-1 font-medium text-primary">
+<span>CloudScale Solutions</span>
+<span class="material-icons text-[16px]">verified</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-[18px]">location_on</span>
+<span>Remote</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-[18px]">schedule</span>
+<span>Posted 2 days ago</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<div class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold self-start md:self-end">
+                                $140k – $180k
+                            </div>
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-bold transition-all shadow-lg shadow-primary/20">
+                                Apply on Official Site
+                            </button>
+</div>
+</div>
+</div>
+<!-- Detailed Content Card -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 md:p-8">
+<article class="prose prose-slate dark:prose-invert max-w-none">
+<section class="mb-10">
+<h2 class="text-xl font-bold mb-4 text-slate-900 dark:text-white flex items-center gap-2">
+<span class="w-1.5 h-6 bg-primary rounded-full"></span>
+                                Job Description
+                            </h2>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                                CloudScale Solutions is looking for an experienced Senior QA Engineer to join our core infrastructure team. In this role, you will be responsible for defining, implementing, and maintaining our automated testing frameworks across our entire distributed system. You will work closely with developers to ensure that quality is built into every stage of the software development lifecycle.
+                            </p>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Our platform handles millions of concurrent requests, requiring a meticulous approach to performance testing and reliability engineering. You’ll be the champion of quality, helping us scale our services while maintaining the high availability our enterprise clients expect.
+                            </p>
+</section>
+<section class="mb-10">
+<h2 class="text-xl font-bold mb-4 text-slate-900 dark:text-white flex items-center gap-2">
+<span class="w-1.5 h-6 bg-primary rounded-full"></span>
+                                Key Responsibilities
+                            </h2>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary mt-0.5 text-[20px]">check_circle</span>
+<span>Design and implement robust automated test suites for web applications and backend APIs.</span>
+</li>
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary mt-0.5 text-[20px]">check_circle</span>
+<span>Integrate automated tests into CI/CD pipelines to ensure continuous quality delivery.</span>
+</li>
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary mt-0.5 text-[20px]">check_circle</span>
+<span>Identify, document, and track software defects using industry-standard tools.</span>
+</li>
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary mt-0.5 text-[20px]">check_circle</span>
+<span>Collaborate with product managers and developers to define clear acceptance criteria.</span>
+</li>
+</ul>
+</section>
+<section class="mb-10">
+<h2 class="text-xl font-bold mb-4 text-slate-900 dark:text-white flex items-center gap-2">
+<span class="w-1.5 h-6 bg-primary rounded-full"></span>
+                                Requirements
+                            </h2>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary mt-0.5 text-[20px]">arrow_forward</span>
+<span>5+ years of experience in software quality assurance with a focus on automation.</span>
+</li>
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary mt-0.5 text-[20px]">arrow_forward</span>
+<span>Proficiency in JavaScript/TypeScript and frameworks like Playwright, Cypress, or Selenium.</span>
+</li>
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary mt-0.5 text-[20px]">arrow_forward</span>
+<span>Experience testing RESTful APIs and distributed systems.</span>
+</li>
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary mt-0.5 text-[20px]">arrow_forward</span>
+<span>Strong understanding of SQL and NoSQL databases.</span>
+</li>
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary mt-0.5 text-[20px]">arrow_forward</span>
+<span>Familiarity with containerization (Docker) and Kubernetes is a plus.</span>
+</li>
+</ul>
+</section>
+</article>
+<div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 text-center">
+<button class="bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all shadow-xl shadow-primary/20 mb-3">
+                            Apply on Official Site
+                        </button>
+<p class="text-xs text-slate-500 dark:text-slate-500 italic max-w-sm mx-auto">
+                            You will be redirected to the company's official site to complete your application. JobRadar ensures all external links are verified and secure.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Sidebar -->
+<aside class="lg:col-span-4">
+<div class="sticky top-24 space-y-6">
+<!-- Related Jobs Section -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="p-5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+<h3 class="font-bold text-slate-900 dark:text-white">Related Jobs</h3>
+</div>
+<div class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Sidebar Card 1 -->
+<a class="block p-5 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group" href="#">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded bg-slate-100 dark:bg-slate-700 flex-shrink-0 flex items-center justify-center">
+<img alt="Co Logo" class="w-full h-full object-cover rounded" data-alt="Abstract gradient tech brand mark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmgI6alMBjyKMQhmceRCDdMXXGiGeSIoYuSj_45WMg7_GSUwZAaP3ZPiDAILTd7xgEp79B_GXoMg746h8KhwyfGIKey84fFhHuGOJExnTcV3M9ah7ekWbZzbDnmEAGr-eGVL-Fp4RxSQqDTpe6cLWXum-z373CNPbJ3HH9GAghNd7L7bonwQSW2sw0tafCFVP_WfXf8biUUhkqB1IgNugHqpmg1VhQ5sVh0p1kqwEjR9bpdkdRDU_kWZx9qxVoiLByHdliWDt-89fU"/>
+</div>
+<div>
+<h4 class="font-semibold text-sm group-hover:text-primary transition-colors">SDET / QA Lead</h4>
+<p class="text-xs text-slate-500 mt-1">TechFlow Systems</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Remote</span>
+<span class="text-slate-300 dark:text-slate-700">•</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-primary">$150k+</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Sidebar Card 2 -->
+<a class="block p-5 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group" href="#">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded bg-slate-100 dark:bg-slate-700 flex-shrink-0 flex items-center justify-center">
+<img alt="Co Logo" class="w-full h-full object-cover rounded" data-alt="Abstract purple logo for a software company" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWLVdnG84fXNk0Y8HaIGSkkXbEKlMNRuoDXW1BLAapz074Qvv5SFE07DHsDaxDTzUAwrZfay0rDqtxejzsQ5kjzWjVcpfUuJy0WCJb-7aXBpM5FCVUDoFBD_YFxb91Ok9ENbWl6Gfn5bot93me9QIF8viTXlENrw86d0Yayl6b3VH6wtQrAveHeXGM7UrCUaaTXIdO5ImKtzgnqysS_uVM9SYKNpNrW_YAnuML6rcm75C8XFLiyNTuQLWA1pNbHZJ9UYc13IWs0ZAW"/>
+</div>
+<div>
+<h4 class="font-semibold text-sm group-hover:text-primary transition-colors">Automation Engineer</h4>
+<p class="text-xs text-slate-500 mt-1">DataCore Global</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Austin, TX</span>
+<span class="text-slate-300 dark:text-slate-700">•</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-primary">$135k</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Sidebar Card 3 -->
+<a class="block p-5 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group" href="#">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded bg-slate-100 dark:bg-slate-700 flex-shrink-0 flex items-center justify-center">
+<img alt="Co Logo" class="w-full h-full object-cover rounded" data-alt="Abstract blue branding icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwL66GV4tVNhGrzA3WFxDqD7UOtq12GiPaV2VHUI0sLzc5Ks97Do9iBIfl0SXn1XllcfVepTk9tmzpfzIxDMcZWBpLaZHX51IIpKxi3KWU4qERK5YyuvDgL1jmNu-qIb4bXYbmG2_Pbs5AaICl58t6Y1wed1qzxKVVJ-rV3uSy9rxUITWzIRi77-wY4yFvZ8KtKYkLs4239WCIYRKL__84oxolfw2Yfn5O4AOWEAH7q06WsrP_RgByJzjf1cArSzIAZwECufo3XZ48"/>
+</div>
+<div>
+<h4 class="font-semibold text-sm group-hover:text-primary transition-colors">Senior Test Architect</h4>
+<p class="text-xs text-slate-500 mt-1">NexaSoft Inc.</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Remote</span>
+<span class="text-slate-300 dark:text-slate-700">•</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-primary">$175k</span>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-800/50 text-center">
+<a class="text-xs font-bold text-primary hover:underline" href="#">View All Similar Jobs</a>
+</div>
+</div>
+<!-- Company Quick Info -->
+<div class="bg-primary rounded-xl p-6 text-white overflow-hidden relative">
+<div class="relative z-10">
+<h4 class="font-bold text-lg mb-2">Want to work here?</h4>
+<p class="text-white/80 text-sm mb-4">Set up an alert to get notified about new openings at CloudScale Solutions.</p>
+<button class="w-full bg-white text-primary font-bold py-2.5 rounded-lg text-sm transition-transform active:scale-95">Create Alert</button>
+</div>
+<span class="material-icons absolute -bottom-6 -right-6 text-white/10 text-9xl">notifications_active</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 pt-16 pb-8 border-t border-slate-800">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 font-bold text-2xl text-white mb-6">
+<span class="material-icons text-primary">radar</span>
+<span>JobRadar</span>
+</div>
+<p class="text-sm leading-relaxed">
+                        Connecting verified professionals with top-tier opportunities. We focus on trust, transparency, and the human side of recruitment.
+                    </p>
+<div class="flex gap-4 mt-6">
+<a class="hover:text-primary transition-colors" href="#"><span class="material-icons text-[20px]">public</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-icons text-[20px]">email</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-icons text-[20px]">business</span></a>
+</div>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Job Seekers</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Browse Jobs</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Job Alerts</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Career Advice</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Salaries</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Employers</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Post a Job</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Browse Candidates</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Hiring Solutions</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Pricing</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Newsletter</h5>
+<p class="text-sm mb-4">Get the best jobs in your inbox weekly.</p>
+<div class="flex flex-col gap-2">
+<input class="bg-slate-800 border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary text-white" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">Subscribe</button>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+<p>© 2024 JobRadar Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-white" href="#">Privacy Policy</a>
+<a class="hover:text-white" href="#">Terms of Service</a>
+<a class="hover:text-white" href="#">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

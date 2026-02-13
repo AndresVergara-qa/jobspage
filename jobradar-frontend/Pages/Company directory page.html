@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JobRadar | Company Directory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0d7ff2",
+            "background-light": "#f5f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased transition-colors duration-200">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons text-white text-lg">radar</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">JobRadar</span>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary font-medium transition-colors" href="#">Find Jobs</a>
+<a class="text-primary font-semibold border-b-2 border-primary" href="#">Companies</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary font-medium transition-colors" href="#">Resources</a>
+</nav>
+<div class="flex items-center gap-4">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary font-medium px-4 py-2" href="#">Log in</a>
+<a class="bg-primary hover:bg-primary/90 text-white font-medium px-5 py-2 rounded-lg transition-all shadow-sm" href="#">Sign up</a>
+</div>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="py-16 bg-white dark:bg-background-dark border-b border-slate-100 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">Explore Companies</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          Discover your next career move by browsing top-rated employers and their unique workplace cultures. We only feature verified listings.
+        </p>
+</div>
+</section>
+<!-- Search & Filter Bar -->
+<div class="relative -mt-8 z-10">
+<div class="max-w-5xl mx-auto px-4">
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 grid grid-cols-1 md:grid-cols-4 gap-2">
+<div class="relative flex-1">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-transparent border-none focus:ring-0 text-slate-700 dark:text-slate-200 placeholder:text-slate-400 text-sm" placeholder="Search by company name..." type="text"/>
+</div>
+<div class="border-l border-slate-100 dark:border-slate-800 px-2 flex items-center">
+<select class="w-full bg-transparent border-none focus:ring-0 text-slate-700 dark:text-slate-200 text-sm py-3 cursor-pointer">
+<option>All Industries</option>
+<option>Technology</option>
+<option>Finance</option>
+<option>Healthcare</option>
+<option>Design</option>
+</select>
+</div>
+<div class="border-l border-slate-100 dark:border-slate-800 px-2 flex items-center">
+<select class="w-full bg-transparent border-none focus:ring-0 text-slate-700 dark:text-slate-200 text-sm py-3 cursor-pointer">
+<option>Global Locations</option>
+<option>Remote</option>
+<option>San Francisco</option>
+<option>New York</option>
+<option>London</option>
+</select>
+</div>
+<div class="flex items-center">
+<button class="w-full bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-2">
+<span class="material-icons text-sm">filter_alt</span>
+              Find Companies
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Section -->
+<section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            Top Employers
+            <span class="bg-primary/10 text-primary text-xs font-semibold px-2 py-1 rounded">PARTNERS</span>
+</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Highly-rated companies with verified workplace cultures.</p>
+</div>
+<a class="text-primary font-semibold text-sm hover:underline" href="#">View all partners</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Featured Card 1 -->
+<div class="group bg-white dark:bg-slate-900 rounded-xl border-2 border-primary/20 dark:border-primary/10 p-6 relative hover:shadow-2xl hover:shadow-primary/5 transition-all">
+<div class="absolute top-4 right-4">
+<span class="material-icons text-primary" title="Verified Employer">verified</span>
+</div>
+<div class="flex items-start gap-4 mb-6">
+<img alt="Logo" class="w-16 h-16 rounded-lg bg-slate-50 dark:bg-slate-800 object-cover" data-alt="Abstract colorful corporate logo on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKHBBkcsXjE1yLia0qa07Atd1hMoZgoLSqywJppPIsGcZ_Br7tximg1TpmrnuEWnoprl4Wfhc4dGAmOw322sIwQLOnpjj1QBMc9mOkDWdxWEcRPVsodFZdhdW1D0WelKhSduv5_olNoEyUSYFfcTtsnDbaLTAFDHRLP8lzX3O3f44lYH0zmSCKeE8-IDIykTRKo9Wsj5mUjhxjIVD2RpWC1_OnTAsAhYAuxweA00n5HRYt9DT0NeB799TmOHykry8b1_ajMo9PQ4ib"/>
+<div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Nebula Dynamics</h3>
+<p class="text-primary font-medium text-sm">Artificial Intelligence</p>
+</div>
+</div>
+<div class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 mb-6">
+<div class="flex items-center gap-1">
+<span class="material-icons text-base">location_on</span>
+              Palo Alto, CA
+            </div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-base">groups</span>
+              500-1000
+            </div>
+</div>
+<div class="flex items-center justify-between">
+<span class="bg-primary/10 dark:bg-primary/20 text-primary font-bold text-xs px-3 py-1.5 rounded-full">42 Open Roles</span>
+<button class="text-primary font-bold text-sm group-hover:underline flex items-center gap-1">
+              View Profile <span class="material-icons text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Featured Card 2 -->
+<div class="group bg-white dark:bg-slate-900 rounded-xl border-2 border-primary/20 dark:border-primary/10 p-6 relative hover:shadow-2xl hover:shadow-primary/5 transition-all">
+<div class="absolute top-4 right-4">
+<span class="material-icons text-primary" title="Verified Employer">verified</span>
+</div>
+<div class="flex items-start gap-4 mb-6">
+<img alt="Logo" class="w-16 h-16 rounded-lg bg-slate-50 dark:bg-slate-800 object-cover" data-alt="Minimalist geometric logo in blue and gray" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0Lc37vDxxkyq37KwVpN03DT2YCQRqeaRm01620sOALWmfxnMGNBRJvjhfCABItxwv9mLXCb2ZXl6tcEhVjg6LKEPoiCHn8wLs7Ew-2IQeUX-a66WBBHWSQ1NVJ-6Qoc8xXWqYdO0l-m285c8NOrAg16GopUjy_4Os0ZX1xnPlW_amTjmkeS0Oyr-o_S7-L1z2du6kLy-m8MqtiOK5Nb52FbiFGSRSjkWDRFg0rTyWe2o7btQ6ViPgdnwS28lejHS5Qi-MZHVrf8-9"/>
+<div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">FinFlow Systems</h3>
+<p class="text-primary font-medium text-sm">Fintech</p>
+</div>
+</div>
+<div class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 mb-6">
+<div class="flex items-center gap-1">
+<span class="material-icons text-base">location_on</span>
+              London, UK
+            </div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-base">groups</span>
+              250-500
+            </div>
+</div>
+<div class="flex items-center justify-between">
+<span class="bg-primary/10 dark:bg-primary/20 text-primary font-bold text-xs px-3 py-1.5 rounded-full">18 Open Roles</span>
+<button class="text-primary font-bold text-sm group-hover:underline flex items-center gap-1">
+              View Profile <span class="material-icons text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Featured Card 3 -->
+<div class="group bg-white dark:bg-slate-900 rounded-xl border-2 border-primary/20 dark:border-primary/10 p-6 relative hover:shadow-2xl hover:shadow-primary/5 transition-all">
+<div class="absolute top-4 right-4">
+<span class="material-icons text-primary" title="Verified Employer">verified</span>
+</div>
+<div class="flex items-start gap-4 mb-6">
+<img alt="Logo" class="w-16 h-16 rounded-lg bg-slate-50 dark:bg-slate-800 object-cover" data-alt="Modern professional brand mark in deep colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOigTTL2vV-Rouf0ca5scpZbxVDekkmXwS0AbcTJgYK_vAmmNc1HVZVZ-z_c3ntNC-kuz73lgL8NCdYKUjjq99tKM1-EDGWLMoNrvafd31qR-r6yTMHS-_lais4oVq1PTkSZHEHjKalAFeEdF11FvilbsbYfEt-jFB2cjYBRwkqWAzexj0_ld9BaUmz6RI7ICna0lrBwJ_tR1aZEow58Yp83cbQppXAZBx_MXgZDrY7bWFFLcH_4JdzK6v0rDVm2MJaS5CBjNVilVA"/>
+<div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">EcoPulse</h3>
+<p class="text-primary font-medium text-sm">Renewable Energy</p>
+</div>
+</div>
+<div class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 mb-6">
+<div class="flex items-center gap-1">
+<span class="material-icons text-base">location_on</span>
+              Berlin, DE
+            </div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-base">groups</span>
+              1k-5k
+            </div>
+</div>
+<div class="flex items-center justify-between">
+<span class="bg-primary/10 dark:bg-primary/20 text-primary font-bold text-xs px-3 py-1.5 rounded-full">31 Open Roles</span>
+<button class="text-primary font-bold text-sm group-hover:underline flex items-center gap-1">
+              View Profile <span class="material-icons text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Grid Content -->
+<section class="py-8 bg-slate-50 dark:bg-slate-950/40">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-8">All Companies</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Company Card Template -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 hover:border-primary transition-colors flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-icons text-slate-400">business</span>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-slate-900 dark:text-white truncate">CloudSphere</h4>
+<p class="text-xs text-slate-500">Cloud Services</p>
+</div>
+</div>
+<div class="space-y-2 mb-6 flex-grow">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">location_on</span>
+                Austin, TX
+              </div>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">equalizer</span>
+                12 Active Job Listings
+              </div>
+</div>
+<button class="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white font-semibold py-2 rounded-lg transition-all text-sm">
+              View Company
+            </button>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 hover:border-primary transition-colors flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-icons text-slate-400">health_and_safety</span>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-slate-900 dark:text-white truncate">MediCore</h4>
+<p class="text-xs text-slate-500">Healthcare</p>
+</div>
+</div>
+<div class="space-y-2 mb-6 flex-grow">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">location_on</span>
+                Boston, MA
+              </div>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">equalizer</span>
+                7 Active Job Listings
+              </div>
+</div>
+<button class="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white font-semibold py-2 rounded-lg transition-all text-sm">
+              View Company
+            </button>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 hover:border-primary transition-colors flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-icons text-slate-400">shopping_bag</span>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-slate-900 dark:text-white truncate">SwiftCart</h4>
+<p class="text-xs text-slate-500">E-Commerce</p>
+</div>
+</div>
+<div class="space-y-2 mb-6 flex-grow">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">location_on</span>
+                Remote
+              </div>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">equalizer</span>
+                24 Active Job Listings
+              </div>
+</div>
+<button class="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white font-semibold py-2 rounded-lg transition-all text-sm">
+              View Company
+            </button>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 hover:border-primary transition-colors flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-icons text-slate-400">palette</span>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-slate-900 dark:text-white truncate">DesignLab</h4>
+<p class="text-xs text-slate-500">Creative Agency</p>
+</div>
+</div>
+<div class="space-y-2 mb-6 flex-grow">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">location_on</span>
+                Amsterdam, NL
+              </div>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">equalizer</span>
+                4 Active Job Listings
+              </div>
+</div>
+<button class="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white font-semibold py-2 rounded-lg transition-all text-sm">
+              View Company
+            </button>
+</div>
+<!-- Repeated for fill -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 hover:border-primary transition-colors flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-icons text-slate-400">token</span>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-slate-900 dark:text-white truncate">BlockScale</h4>
+<p class="text-xs text-slate-500">Blockchain</p>
+</div>
+</div>
+<div class="space-y-2 mb-6 flex-grow">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">location_on</span>
+                New York, NY
+              </div>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">equalizer</span>
+                15 Active Job Listings
+              </div>
+</div>
+<button class="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white font-semibold py-2 rounded-lg transition-all text-sm">
+              View Company
+            </button>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 hover:border-primary transition-colors flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-icons text-slate-400">electric_car</span>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-slate-900 dark:text-white truncate">VoltAuto</h4>
+<p class="text-xs text-slate-500">Automotive</p>
+</div>
+</div>
+<div class="space-y-2 mb-6 flex-grow">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">location_on</span>
+                Oslo, NO
+              </div>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">equalizer</span>
+                9 Active Job Listings
+              </div>
+</div>
+<button class="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white font-semibold py-2 rounded-lg transition-all text-sm">
+              View Company
+            </button>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 hover:border-primary transition-colors flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-icons text-slate-400">security</span>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-slate-900 dark:text-white truncate">SecureNet</h4>
+<p class="text-xs text-slate-500">Cybersecurity</p>
+</div>
+</div>
+<div class="space-y-2 mb-6 flex-grow">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">location_on</span>
+                Seattle, WA
+              </div>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">equalizer</span>
+                21 Active Job Listings
+              </div>
+</div>
+<button class="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white font-semibold py-2 rounded-lg transition-all text-sm">
+              View Company
+            </button>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 hover:border-primary transition-colors flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-icons text-slate-400">rocket_launch</span>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-slate-900 dark:text-white truncate">OrbitX</h4>
+<p class="text-xs text-slate-500">Aerospace</p>
+</div>
+</div>
+<div class="space-y-2 mb-6 flex-grow">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">location_on</span>
+                Cape Canaveral, FL
+              </div>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">equalizer</span>
+                5 Active Job Listings
+              </div>
+</div>
+<button class="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white font-semibold py-2 rounded-lg transition-all text-sm">
+              View Company
+            </button>
+</div>
+</div>
+<!-- Pagination (Simple) -->
+<div class="mt-12 flex justify-center gap-2">
+<button class="w-10 h-10 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-50">
+<span class="material-icons">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded bg-primary text-white font-bold flex items-center justify-center shadow-md">1</button>
+<button class="w-10 h-10 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-50">2</button>
+<button class="w-10 h-10 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-50">3</button>
+<button class="w-10 h-10 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-50">
+<span class="material-icons">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Bottom CTA Section -->
+<section class="py-20 bg-primary/5 dark:bg-primary/10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6">Ready to take the next step?</h2>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl transition-all shadow-lg shadow-primary/20" href="#">
+            Browse Jobs
+          </a>
+<a class="w-full sm:w-auto px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-bold rounded-xl hover:bg-slate-50 transition-all shadow-sm" href="#">
+            Post a Job
+          </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-dark text-slate-400 py-16 border-t border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons text-white text-lg">radar</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-white">JobRadar</span>
+</div>
+<p class="text-sm leading-relaxed mb-6">Connecting the world's best talent with verified companies. Your trusted partner in career growth.</p>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-colors" href="#"><span class="material-icons">facebook</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-icons">alternate_email</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-icons">hub</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">For Candidates</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Browse Jobs</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Browse Companies</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Career Advice</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Job Alerts</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">For Employers</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Post a Job</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Pricing Plans</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Talent Solutions</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Company Profile</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Support</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-slate-800 pt-8 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+<p>© 2024 JobRadar. All rights reserved.</p>
+<div class="flex gap-6">
+<span>English (US)</span>
+<span>USD ($)</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

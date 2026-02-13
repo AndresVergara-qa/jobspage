@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JobRadar Career Blog | Expert Career Advice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d7ff2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white">radar</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">JobRadar</span>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors font-medium" href="#">Find Jobs</a>
+<a class="text-primary font-semibold" href="#">Blog</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors font-medium" href="#">Companies</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors font-medium" href="#">Salaries</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-slate-600 dark:text-slate-400 font-medium hover:text-primary px-4 py-2">Log in</button>
+<button class="bg-primary text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-600 transition-all shadow-sm">Sign Up</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative bg-slate-900 py-20 overflow-hidden">
+<div class="absolute inset-0 opacity-20">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
+<div class="absolute -bottom-24 -right-24 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+<span class="inline-block py-1 px-3 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-4">Career Resources</span>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">Career Advice &amp; Job Tips</h1>
+<p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                Expert guidance to help you navigate your career journey, from landing your first interview to securing your next major promotion.
+            </p>
+</div>
+</section>
+<!-- Category Navigation -->
+<div class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-16 z-40">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-center space-x-2 py-4 overflow-x-auto no-scrollbar">
+<button class="px-4 py-2 rounded-full bg-primary text-white text-sm font-medium whitespace-nowrap">All Topics</button>
+<button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium whitespace-nowrap">Interviews</button>
+<button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium whitespace-nowrap">Resumes</button>
+<button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium whitespace-nowrap">QA Career</button>
+<button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium whitespace-nowrap">Remote Work</button>
+<button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium whitespace-nowrap">Salary Tips</button>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Blog Grid -->
+<div class="lg:w-2/3">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Article Card 1 -->
+<article class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="aspect-video w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional woman in a business meeting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJX76x7tD0T7ISgq9J2Qu-WjNYn0EOD2RETokijU9Uc2I4Uza1yzNXRoNks_RruMUormuid9NKHEc5sS7FESo_iQbc9XeW4PD1ufHu6QXX75zVDv5P5X_EPKamlpsz4gwkcEX6UUfZ53LdES14P5Dd6nOt6YxsjUiItuybfGAscpEJhGsJVaezcznNdvxg8RkvHLI41CDsf7uz3k2PLv6vM-MT18pQfAQZ_pHCrcfwQbfGyGOFxV9G0llsoUp3-VmFFHS58cpTcx3F"/>
+</div>
+<div class="p-6">
+<span class="text-xs font-bold uppercase tracking-wider text-primary mb-2 block">Interviews</span>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3 hover:text-primary transition-colors">10 Common QA Interview Questions and How to Answer Them</h2>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">Master your next quality assurance interview with our comprehensive guide on handling technical and behavioral questions.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Author profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQkg5I981Eptt8nkbi4OlPu7buyGndHBOVIiUXHG6jgHmmbz-WVoL4dd9yAjDYJstdZeGSXWdpdcUPFD7YVE73pSQN1LnOstz1NGfSJr4lAalfcKIre6BF0EhT9KiFcAKdf-2Qf1DFIdVKzpXP9szLuIzz9ih0mfY_S-bD0R4RBMxyAITF-aLq1xKxRp0zoltuTl6EDLpTkbjaw_q7hu0lkmLY_LKTYsVWN2g3pku3AZx2YLbt7ELI2UWAFL8qaR5_6IIVel8fDABu"/>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-900 dark:text-white">Sarah Jenkins</p>
+<p class="text-[10px] text-slate-500">Oct 24, 2023</p>
+</div>
+</div>
+<a class="text-primary font-semibold text-sm flex items-center gap-1" href="#">
+                                    Read more <span class="material-icons text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Article Card 2 -->
+<article class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="aspect-video w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Person working from a home office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQmp44nqwSsgRkmQp8IzRX3lawJdv6VfEXziIbRSfjeP_e9NLV5mE3pHE8S6E6E874WlGWag_dJiokK_ZUugLHzYTvlx-VVTbDKthtmxA6U-BsaEhhWPLcAS-TTvU04FRohuWxah1FV2YX1AlaZ5Dl4m0O4sQCinS1f4p_DgM5r-m0CeQcPffTmHI4RRXUIgb3fdmeUG5PgYqY-VmUI0Op95_SjzGAAX17dA7l2cJ6eXqeWkTrNv1qZxAz0SSgqbmJ2s3shz3jnv2U"/>
+</div>
+<div class="p-6">
+<span class="text-xs font-bold uppercase tracking-wider text-primary mb-2 block">Remote Work</span>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3 hover:text-primary transition-colors">The Ultimate Guide to Remote Work Productivity</h2>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">Learn how to stay focused and maintain a healthy work-life balance while working from your home office.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Author profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy5TK3PtQYLv_WW_pU6C7eOTeuMe2MSMad3uCQsBAm8yZ7OZvIBwdEZx_3JIcUeLPPLXxvB4XK474N4C8C5Ycg4_hPWv4FJNvwtY7qEcSM5U_QSZodQ99aK6vaFYgJp05nYJ4UCVngA0OAA5Dd0TPSCIXBN_ViewSKnBmtHtZz8JITpKoNNg3XUhrsC6Bujge1gnrweCYjAkGff5qCxBMUiB1UuT1PllJ7c27_ms9jcufziVvEDojkPZnAzlZpmB-1pC0yUb41nBMq"/>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-900 dark:text-white">Elena Rodriguez</p>
+<p class="text-[10px] text-slate-500">Oct 21, 2023</p>
+</div>
+</div>
+<a class="text-primary font-semibold text-sm flex items-center gap-1" href="#">
+                                    Read more <span class="material-icons text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Article Card 3 -->
+<article class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="aspect-video w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Person reviewing financial documents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqQ1Ndk2frCuAwg9A6Fwg0ocy88vS7EeTbbFFntui3AI3UnSKLwU5m7os4BLDTk3FSDL2eKRNKZBJvRvYzNjzV0Bk36Q7hVGVI_sXj0KW4nLYD6fQgg2G47ZIUHB4CboRt57OESasBEv1Xih31AzKicE4Dt8IDwhUAKtYocpipGEtaHS12I6Z2obDKq7vMCXirWupZDUerTnknCIaShIu1aHVrNlQnDYgWtyL56SLS_0_uJavwzval9Mo3fiZiVguty6Arnim0n8eT"/>
+</div>
+<div class="p-6">
+<span class="text-xs font-bold uppercase tracking-wider text-primary mb-2 block">Salary Tips</span>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3 hover:text-primary transition-colors">How to Negotiate Your Salary in 2024</h2>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">Don't leave money on the table. Expert strategies to get the compensation you deserve in today's market.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Author profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWcwtdCrXjY1KpI0VhYj86CyYVqvajFrsaVn0yVd4fzL6j-7QgBjwognIunIfL8L6SFSYsR5AWTTF69NNKw7BcBK974y0xPGZPq6IERrxk8noKUnWUORDbcwi5pBJZyYqQfznsiKRrOjFPlGVDRqc3tr_an8GGgzVRPTnPJPbmVrASfo9wxqNL054Wc8-gIWHThL3r5e4zN-X9Viv0qTuIb0IeCF4OuQNe1l4zGcfjxR3hro7pEmg24JgotRccQKmKNFVvr9jz4iXH"/>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-900 dark:text-white">Marcus Chen</p>
+<p class="text-[10px] text-slate-500">Oct 18, 2023</p>
+</div>
+</div>
+<a class="text-primary font-semibold text-sm flex items-center gap-1" href="#">
+                                    Read more <span class="material-icons text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Article Card 4 -->
+<article class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="aspect-video w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Modern resume layout on desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5RuBchOGfc-_dC6H8PvgDMPS1WkHwAtaFL5jGTCQxl3CkolAKiSU8b_f-pKZxhhcN-u5w9rX9kPpOvvm5p28nbgxXgsoUkX1Co3uez6hme4WRFKZ88QrME17wHHo9u5KHSZ1VwV8KWDR5GTxQWtLIGkikVjthKMHGlMYzA3hwUEW2WwefenG21ATG7Z3hmD_joXv-Vnt-18ZgBr9q4vDf_Hzdcd8nVcj1KRkAag5OsK7YASsqw33dQmMbS5FdPlGU4ixdkuHCk_57"/>
+</div>
+<div class="p-6">
+<span class="text-xs font-bold uppercase tracking-wider text-primary mb-2 block">Resumes</span>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3 hover:text-primary transition-colors">5 Resume Mistakes That Are Costing You Interviews</h2>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">Are you making these common errors? Fix your resume today to increase your callback rate by 50%.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Author profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuHecb-IDN_7myj7z_AGpsu9cwUgeoKKWdaz5HxsrQdOrU5ZPc4dUg3Gj3l_0O4rVT2_cJdADsAeWgURePs_tEpGdqmahIIcCjvRGRMhH3xDVWNUFOvdCu2M4u7INo5w9Ne3eb8ISTiQRoZqiqCx0D-X0rgHt9O4NohTYstjjCjgBklG8_W1b6pL3Xo3wqeP27l2LoDlMGtbgqSbnjXVgopp38tVrh2vw0iPdSOxVUvLJv7JdZzPr3Bq1m4kh1l8afbTY6FQc5f61v"/>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-900 dark:text-white">Sarah Jenkins</p>
+<p class="text-[10px] text-slate-500">Oct 15, 2023</p>
+</div>
+</div>
+<a class="text-primary font-semibold text-sm flex items-center gap-1" href="#">
+                                    Read more <span class="material-icons text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="mt-12 flex justify-center items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 text-slate-400 cursor-not-allowed">
+<span class="material-icons">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800">3</button>
+<span class="text-slate-400 px-2">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800">12</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-icons">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Sidebar -->
+<aside class="lg:w-1/3 space-y-8">
+<!-- Weekly Tips Widget -->
+<div class="bg-primary rounded-xl p-8 text-white shadow-lg shadow-primary/20">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-icons">email</span>
+<h3 class="text-xl font-bold">Weekly Career Tips</h3>
+</div>
+<p class="text-white/80 text-sm mb-6 leading-relaxed">Join 20,000+ professionals getting weekly insights on career growth and job market trends.</p>
+<form class="space-y-3">
+<input class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30" placeholder="Your email address" type="email"/>
+<button class="w-full bg-white text-primary font-bold py-3 rounded-lg hover:bg-slate-100 transition-colors">Subscribe Now</button>
+</form>
+<p class="text-[10px] text-white/50 mt-4 text-center">No spam, unsubscribe anytime.</p>
+</div>
+<!-- Career Tools -->
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Career Tools</h3>
+<div class="space-y-3">
+<a class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 group transition-colors" href="#">
+<div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-primary">
+<span class="material-icons">description</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary">Resume Builder</p>
+<p class="text-xs text-slate-500">Create a pro CV in minutes</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 group transition-colors" href="#">
+<div class="w-10 h-10 rounded-lg bg-green-50 dark:bg-green-900/30 flex items-center justify-center text-green-600">
+<span class="material-icons">calculate</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary">Salary Calculator</p>
+<p class="text-xs text-slate-500">Compare market rates</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 group transition-colors" href="#">
+<div class="w-10 h-10 rounded-lg bg-orange-50 dark:bg-orange-900/30 flex items-center justify-center text-orange-600">
+<span class="material-icons">school</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary">Free Skill Assessment</p>
+<p class="text-xs text-slate-500">Identify your growth areas</p>
+</div>
+</a>
+</div>
+</div>
+<!-- Most Popular -->
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6">Most Popular</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<span class="text-3xl font-bold text-slate-200 dark:text-slate-800 leading-none">01</span>
+<div>
+<a class="text-sm font-bold text-slate-900 dark:text-white hover:text-primary transition-colors block mb-1" href="#">The High-Growth Skills You Need in 2024</a>
+<p class="text-[11px] text-slate-500">4.5k views • 5 min read</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="text-3xl font-bold text-slate-200 dark:text-slate-800 leading-none">02</span>
+<div>
+<a class="text-sm font-bold text-slate-900 dark:text-white hover:text-primary transition-colors block mb-1" href="#">How to Answer "What is Your Greatest Weakness?"</a>
+<p class="text-[11px] text-slate-500">3.8k views • 8 min read</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="text-3xl font-bold text-slate-200 dark:text-slate-800 leading-none">03</span>
+<div>
+<a class="text-sm font-bold text-slate-900 dark:text-white hover:text-primary transition-colors block mb-1" href="#">The Secrets of Tech Recruiter Screenings</a>
+<p class="text-[11px] text-slate-500">3.1k views • 6 min read</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-base">radar</span>
+</div>
+<span class="text-lg font-bold text-white">JobRadar</span>
+</div>
+<p class="text-sm leading-relaxed mb-6">JobRadar is a professional job aggregator focused on verified listings and user trust. We help you find your dream career with confidence.</p>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-colors" href="#"><span class="material-icons">facebook</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-icons">terminal</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-icons">share</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">For Candidates</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Browse Jobs</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Company Reviews</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Career Advice</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Salaries</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">For Employers</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Post a Job</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Hiring Solutions</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Partner Program</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Legal &amp; Support</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Trust &amp; Safety</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-800 text-center text-xs">
+<p class="mb-2">© 2024 JobRadar. All rights reserved. Verified listings you can trust.</p>
+<p>JobRadar uses advanced verification protocols to ensure the authenticity of every listing on our platform.</p>
+</div>
+</div>
+</footer>
+</body></html>
